@@ -5,14 +5,17 @@ Created on Mon Jan  3 16:35:07 2022
 @author: Davide Aloi - PhD student
 """
 
+import glob
+import numpy as np
 from nilearn import image, plotting
 from nilearn.image import new_img_like
 
-import os
-import numpy as np
 
-s1_v = os.path.join('D:\\roast-chapter3\wp2a\sub-01', 'swsub-01_T1_20220103T140836_emag.nii') 
-s1_t1 = os.path.join('D:\\roast-chapter3\wp2a\sub-01', 'c1c2bin.nii')
+path = 'D:\\roast-chapter3\wp2a\sub-02'
+s1_v = glob.glob(path+ '/swsub-*_T1_*_emag.nii')
+
+
+s1_t1 = glob.glob(path+ '/c1c2bin .nii')
 
 s1_t1_map = image.load_img(s1_t1)
 
