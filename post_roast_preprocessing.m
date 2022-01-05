@@ -1,10 +1,10 @@
 clear all
-% data_path = '/home/people/lxa512/roast-3.0/M1a/'; % this is the path to your dataset
-data_path = 'D:\roast-chapter3\wp2a\';
+
+data_path = 'D:\roast-chapter3\wp2a\'; %path to wp2a roast simulations
 
 % listof subjects
-%participants = {'sub-01','sub-02','sub-03','sub-04','sub-06','sub-07','sub-08','sub-09','sub-10','sub-11','sub-12','sub-13','sub-14','sub-15','sub-17','sub-18','sub-19','sub-20','sub-22','sub-23','sub-24'}
-participants = {'sub-01'}
+participants = {'sub-01','sub-02','sub-03','sub-04','sub-06','sub-07','sub-08','sub-09','sub-10','sub-11','sub-12','sub-13','sub-14','sub-15','sub-17','sub-18','sub-19','sub-20','sub-22','sub-23','sub-24'}
+%participants = {'sub-16'} participant without the t2 scan
 
 nrun = length(participants); % this calculates the number of runs automatically
 jobfile = {'C:\Users\davide\Documents\GitHub\wp1_2_roast\post_roast_preprocessing_job.m'};
@@ -26,7 +26,7 @@ for crun = 1:nrun
     inputs{3, crun} = write_im_names; % Normalise: Estimate & Write: Images to Write - cfg_files % This is the emag and the T1 and are the ones that will be smoothed
     
     tmp_c1 = dir(fullfile(thisparticipantpath,strcat('c1*T1andT2.nii'))); %Nb for subjects that only had the t1 change T1andT2 to T1orT2 (i.e. subj 16)
-    tmp_c2 = dir(fullfile(thisparticipantpath,strcat('c2*T1andT2.nii')));
+    tmp_c2 = dir(fullfile(thisparticipantpath,strcat('c2*T1andT2.nii'))); %i.e. c1*T1orT2.nii
     c_masks_names{1,1} = fullfile(tmp_c1.folder,tmp_c1.name);
     c_masks_names{2,1} = fullfile(tmp_c2.folder,tmp_c2.name);
     inputs{4, crun} = c_masks_names; % Normalise: Write: Images to Write - cfg_files % these are the c1 and c2 which will not be smoothed

@@ -11,11 +11,11 @@ from nilearn import image, plotting
 from nilearn.image import new_img_like
 
 
-path = 'D:\\roast-chapter3\wp2a\sub-02'
+path = 'D:\\roast-chapter3\wp2a\sub-03'
 s1_v = glob.glob(path+ '/swsub-*_T1_*_emag.nii')
 
 
-s1_t1 = glob.glob(path+ '/c1c2bin .nii')
+s1_t1 = glob.glob(path+ '/c1c2bin.nii')
 
 s1_t1_map = image.load_img(s1_t1)
 
@@ -29,6 +29,7 @@ mesh = np.where(s1_t1_data > 0,s1_v_data,0)
 
 mesh_map = new_img_like(s1_t1_map,mesh)
 
-plotting.plot_img(mesh_map)
+plotting.plot_img(s1_v_map, cmap = 'cold_hot')
+plotting.plot_img(s1_t1_map)
 
-image.math_img("img", img=mesh_map).to_filename('meshed.nii')
+#image.math_img("img", img=mesh_map).to_filename('meshed.nii')
