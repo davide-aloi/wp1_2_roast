@@ -31,10 +31,16 @@ anat_map = image.load_img(anat_path)
 anat_data = anat_map.get_fdata()
 
 
-mesh_map = new_img_like(s1_t1_map,mesh)
+mesh = np.where(anat_data > 0, emag_data, 0)
 
-plotting.plot_img(s1_v_map, cmap = 'cold_hot')
-plotting.plot_img(s1_t1_map)
+
+#mesh = np.where(mesh >= 0.26, 0.26, mesh)
+mesh_map = new_img_like(emag_map,mesh)
+
+plotting.plot_roi(mesh_map,
+                  cmap = 'hot_r',
+                  threshold = 0, vmax = 0.36, alpha = 0.45,
+                  black_bg = False)
 
 #image.math_img("img", img=mesh_map).to_filename('meshed.nii')
 
