@@ -4,7 +4,8 @@ data_path = 'D:\roast-chapter3\wp2a\'; %path to wp2a roast simulations
 
 % listof subjects
 participants = {'sub-01','sub-02','sub-03','sub-04','sub-06','sub-07','sub-08','sub-09','sub-10','sub-11','sub-12','sub-13','sub-14','sub-15','sub-17','sub-18','sub-19','sub-20','sub-22','sub-23','sub-24'}
-%participants = {'sub-16'} participant without the t2 scan
+%participants = {'sub-16'} % participant without the t2 scan
+participants = {'sub-06'} 
 
 nrun = length(participants); % this calculates the number of runs automatically
 jobfile = {'C:\Users\davide\Documents\GitHub\wp1_2_roast\post_roast_preprocessing_job.m'};
