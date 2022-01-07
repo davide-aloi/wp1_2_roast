@@ -1,3 +1,8 @@
+
+% Aloi Davide - UoB
+
+% Calculate BMAs per subject (pre < post)
+
 load PEBppA.mat
 
 BMAs = {}
