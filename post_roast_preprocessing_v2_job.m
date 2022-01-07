@@ -18,19 +18,21 @@ matlabbatch{2}.spm.spatial.normalise.estwrite.woptions.bb = [-78 -112 -70
 matlabbatch{2}.spm.spatial.normalise.estwrite.woptions.vox = [1 1 1];
 matlabbatch{2}.spm.spatial.normalise.estwrite.woptions.interp = 4;
 matlabbatch{2}.spm.spatial.normalise.estwrite.woptions.prefix = 'w';
+
 matlabbatch{3}.spm.spatial.normalise.write.subj.def(1) = cfg_dep('Normalise: Estimate & Write: Deformation (Subj 1)', substruct('.','val', '{}',{2}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('()',{1}, '.','def'));
 matlabbatch{3}.spm.spatial.normalise.write.subj.resample = '<UNDEFINED>';
 matlabbatch{3}.spm.spatial.normalise.write.woptions.bb = [-78 -112 -70
-                                                          78 76 85];
-                                                      
+                                                          78 76 85];                                                  
 matlabbatch{3}.spm.spatial.normalise.write.woptions.vox = [1 1 1];
 matlabbatch{3}.spm.spatial.normalise.write.woptions.interp = 4;
 matlabbatch{3}.spm.spatial.normalise.write.woptions.prefix = 'w';
+
 matlabbatch{4}.spm.spatial.smooth.data(1) = cfg_dep('Normalise: Estimate & Write: Normalised Images (Subj 1)', substruct('.','val', '{}',{2}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('()',{1}, '.','files'));
 matlabbatch{4}.spm.spatial.smooth.fwhm = [4 4 4];
 matlabbatch{4}.spm.spatial.smooth.dtype = 0;
 matlabbatch{4}.spm.spatial.smooth.im = 0;
 matlabbatch{4}.spm.spatial.smooth.prefix = 's';
+
 matlabbatch{5}.spm.util.imcalc.input(1) = cfg_dep('Normalise: Write: Normalised Images (Subj 1)', substruct('.','val', '{}',{3}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('()',{1}, '.','files'));
 matlabbatch{5}.spm.util.imcalc.output = 'c1c2bin';
 matlabbatch{5}.spm.util.imcalc.outdir = {''};
