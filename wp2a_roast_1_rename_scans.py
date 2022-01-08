@@ -1,6 +1,4 @@
 """
-Created on Tue Jan  4 11:38:41 2022
-
 @author: Davide Aloi PhD student
 
 Script to rename wp2a files for the roast analysis
