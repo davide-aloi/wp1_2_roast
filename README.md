@@ -10,6 +10,7 @@ The two analyses are:
 
 
 The two analyses require similar preprocessing steps. Here's the list of the steps I've done and the respective scripts.
+
 WP2A: I start from a dataset containing 22 folders (one per participant), each containing a T1 and a T2 scan (except for subject 16 who has only a T1). 
 
 1) [Renaming of anatomical scans](https://github.com/Davi93/wp1_2_roast/blob/main/wp2a_roast_1_rename_scans.py): this renames the anatomical scans of each participant (i.e. sub-01_T1.nii etc). 
