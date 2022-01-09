@@ -42,6 +42,9 @@ Questions:
 6) Hypotheses? Ideas?
 
 
+Plots:
+![image](https://user-images.githubusercontent.com/4202630/148694497-ff4e0f6a-5b6c-4ef7-a137-223a3260a685.png)
+![image](https://user-images.githubusercontent.com/4202630/148694500-1909c22c-2c0e-495a-9081-94e203d332ad.png)
 
 
 
