@@ -31,12 +31,15 @@ Steps:
       6) Save electric-field magnitude derived measures;
       7) Plot smoothed E-field magnitude map;
       8) Run 16 correlations: 4 DCM measures and 4 E-field measures (medians and max values).
+      9) Plot correlations.
 
-
-
-
-
-
+Questions: 
+1) Electric field magnitudes or current densities? 
+2) If so, how to deal with probabilistic masks?
+3) Should I threshold WM masks and apply binary erosion to remove the overlap between WM and GM?
+4) How to deal with Ep values which corresponding Pp is lower than our threshold (75%?)
+5) Should I mask out CSF tissue? Should I use a binary map containing only WM and GM?
+6) Hypotheses? Ideas?
 
 
 
