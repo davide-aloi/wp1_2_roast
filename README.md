@@ -1,9 +1,11 @@
 # wp1_2_roast
-Analysis of electric field magnitudes (wp2a dataset) and correlation analysis with Dynamic Causal Modelling (DCM) results.
+Analysis of electric field magnitudes (wp2a dataset only atm) and correlation analysis with Dynamic Causal Modelling (DCM) results.
 
-The goal of these analyses is to establish whether there is a relationship between single-subject electric field magnitudes
-generated with the ROAST pipeline and changes in effective connectivity within the motor network as defined using DCM and parametric empirical bayes.
-As for the methods, I am trying to replicate those from Indahlastari et al. (2021) and Albizu et al. (2020).
+The goal of these analyses is to establish whether there is a relationship between single-subject electric field (E-field) magnitudes generated with the ROAST pipeline and changes in effective connectivity within the motor network as defined using DCM and parametric empirical bayes (PEB). 
+
+The two analyses I wan to run are:
+1) Correlation analysis between E-field magnitude - medians and max values - (or the current density?) in the motor cortex (M1) and Thalamus (Th) and self- / between-connectivities between M1 and Th as derived from the DCM. e.g. Indahlastari et al. (2021)
+2) Pattern-recognition analysis using support vector machine (SVM) learning algorithm on MRI-derived tDCS current models to provide classification of tDCS treatment response (as reflected by increased M1-TH or TH-M1 connectivity or whatever other measure we decide). e.g. Albizu et al. (2020)
 
 
 
