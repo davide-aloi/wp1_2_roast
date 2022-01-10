@@ -22,7 +22,7 @@ The settings I have used for the simulation are: (t1, {'C3',1.0,'Fp2',-1.0},'T2'
 6) [WP2a e-magnitude measures estimation and correlation analysis](https://github.com/Davi93/wp1_2_roast/blob/main/wp2a_roast_6_data_analysis.ipynb).
 Steps: 
    1) Load MNI template and M1/Th ROIs.
-   2) Load .mat structure with Ep values and .mat structure with Pp values; 
+   2) Load .mat structure with Ep values and .mat structure with Pp values (Nb. Pp values are not used anymore); 
    3) For each subject: 
       1) Load normalised scan containing E-field magnitude (wsub-*_T1_*_emag.nii), normalised CSF, white and grey matter maps (wc1-2-3sub*.nii).
       2) Save DCM values related to the connections M1-M1, Th-Th, M1->Th and Th-> M1;
