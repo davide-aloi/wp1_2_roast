@@ -5,11 +5,11 @@ Script to rename wp2a files for the roast analysis
 
 Output folder structure should be:
 
-main_folder
-    sub-01
-    sub-02
+\main_folder
+    \sub-01
+    \sub-02
     ...
-    sub-x
+    \sub-x
         sub-x_T1.nii
         t2_.. .nii
 
@@ -26,7 +26,7 @@ for subdir, dirs, files in os.walk(main_folder):
             for file in files:
                     print (os.path.join(subdir, file))
                     if '.json' in file:
-                        os.rename(file,'sub-'+sub+'_T1.json')
+                        os.rename(file,'sub-' + sub + '_T1.json')
                     else:
                         if 'T1' in file:
-                            os.rename(file,'sub-'+sub+'_T1.nii')
+                            os.rename(file,'sub-' + sub + '_T1.nii')
