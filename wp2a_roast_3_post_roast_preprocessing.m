@@ -3,6 +3,8 @@
 % Script to normalise and resample the anatomical scan, masks, emag and e maps for each subject (suffix: w).
 % The script also smooths every file with a FHWM filter (kernel: 4mm)
 % (suffix sw)
+% Finally, the script creates a binary map containing white and grey matter
+% only (not used)
 
 data_path = 'D:\roast-chapter3\wp2a_copy\'; %path to wp2a roast simulations
 
