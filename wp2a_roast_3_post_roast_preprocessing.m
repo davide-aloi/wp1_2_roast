@@ -4,7 +4,7 @@
 % The script also smooths every file with a FHWM filter (kernel: 4mm)
 % (suffix sw)
 % Finally, the script creates a binary map containing white and grey matter
-% only (not used)
+% only (c1c2bin.nii) (not used)
 
 data_path = 'D:\roast-chapter3\wp2a_copy\'; %path to wp2a roast simulations
 
