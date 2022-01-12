@@ -35,7 +35,10 @@ for crun = 1:nrun
         tmp_seg = dir(fullfile(thisparticipantpath,strcat('c',string(i),'*T1*T2.nii')));
         write_im_names{3+i,1} = fullfile(tmp_seg.folder,tmp_seg.name);
     end
-
+    
+    all_masks_touched = dir(fullfile(thisparticipantpath,strcat('sub-*','T1*T2_masks.nii')));
+    write_im_names{10,1} = fullfile(all_masks_touched.folder, all_masks_touched.name)
+    
     inputs{3, crun} = write_im_names; % Normalise: Estimate & Write: Images to Write - cfg_files % This is the emag and the T1 and are the ones that will be smoothed
 
     tmp_c1 = dir(fullfile(thisparticipantpath,strcat('c1*T1*T2.nii')));
