@@ -1,7 +1,18 @@
 """
-@author: Davide Aloi PhD student
+@author: Davide Aloi - PhD student - University of Birmingham
 
 Script to rename wp2a files for the roast analysis
+
+Output folder structure should be:
+
+main_folder
+    sub-01
+    sub-02
+    ...
+    sub-x
+        sub-x_T1.nii
+        t2_.. .nii
+
 """
 
 import os
