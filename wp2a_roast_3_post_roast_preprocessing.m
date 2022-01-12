@@ -1,7 +1,8 @@
-% Aloi Davide - University of Birmingham
-% Script to normalise the anatomical scan, masks, emag and e maps for each subject.
-% The script also smooths every file, although the smoothed scans are not used.
-% The script was adapted from Luke's script.
+% Aloi Davide - University of Birmingham. Script adapted from Luke
+% Andrews's script 
+% Script to normalise and resample the anatomical scan, masks, emag and e maps for each subject (suffix: w).
+% The script also smooths every file with a FHWM filter (kernel: 4mm)
+% (suffix sw)
 
 data_path = 'D:\roast-chapter3\wp2a_copy\'; %path to wp2a roast simulations
 
