@@ -1,6 +1,5 @@
 """
 Author: Davide Aloi - PhD student - University of Birmingham
-
 """
 import numpy as np
 
@@ -14,13 +13,22 @@ def current_density_efield(e_field: np.ndarray, mask: np.ndarray, conductivities
     Cerebrospinal fluid = 1.65 (S/m)
 
     Args:
-    e_field (numpy array): array with electric field magnitude values.
+    -------    
+    e_field: numpy array
+        array with electric field magnitude values.
 
-    mask (numpy array): array of integers (i.e. 1 = white matter, 2 = grey matter, 3 =
-    cerebrospinal fluid etc).
+    mask: numpy array
+        array of integers (i.e. 1 = white matter, 2 = grey matter, 3 =
+                           cerebrospinal fluid etc).
 
-    conductivities (list): list of conductivities for each tissue included in the
-    mask (1: 0.126, 2: 0.276 etc)."""
+    conductivities: list 
+        list of conductivities for each tissue included in the
+        mask (1: 0.126, 2: 0.276 etc)
+    
+    Returns:
+    -------
+    numpy array with the same shape of e_field but current density values"""
+    
     
     if e_field.shape != mask.shape:
         raise Exception("Electric field map and mask should have the same dimension.")
