@@ -3,7 +3,6 @@ Author: Davide Aloi - PhD student - University of Birmingham
 
 """
 import numpy as np
-import nilearn
 
 
 def current_density_efield(e_field: np.ndarray, mask: np.ndarray, conductivities: list):
