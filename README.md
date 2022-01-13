@@ -1,11 +1,11 @@
 Aloi Davide - PhD Student (University of Birmingham - Centre for Human Brain Health)
 
-# Analysis of electric field magnitudes and correlation analysis with Dynamic Causal Modelling (DCM) results
+# Analysis of current density and correlation analysis with Dynamic Causal Modelling (DCM) results
 
 The goal of these analyses is to establish whether there is a relationship between single-subject electric field (E-field) magnitudes generated with the [ROAST](https://github.com/andypotatohy/roast#5-outputs-of-roast-software) pipeline (Huang et al., 2019) and changes in effective connectivity within the motor network, derived using DCM and parametric empirical bayes (PEB). 
 
 The two analyses are:
-1) Correlation analysis between current density - medians and max values - in the motor cortex (M1) and Thalamus (Th), with self- / between-connectivities, as derived from the DCM. e.g. Indahlastari et al. (2021). At the moment I am correlating current density measures only with DCM measures derived from the contrast pre vs post Day-1 anodal only. However, I should also correlate those current density measures with DCM measures derived from the contrast pre vs post Day-1 sham. I expect to find correlations between e-field measures and DCM measures for the anodal condition but not for sham. 
+1) Correlation analysis between current density - medians and max values - in the motor cortex (M1) and Thalamus (Th), and self- / between-connectivities, as derived from the DCM. e.g. Indahlastari et al. (2021). At the moment I am correlating current density measures only with DCM measures derived from the contrast pre vs post Day-1 anodal only. However, I should also correlate those current density measures with DCM measures derived from the contrast pre vs post Day-1 sham. I expect to find correlations between e-field measures and DCM measures for the anodal condition but not for sham. 
 
 2) Pattern-recognition analysis using support vector machine (SVM) learning algorithm on MRI-derived tDCS current models to provide classification of tDCS treatment response (as reflected by increased M1-TH or TH-M1 connectivity or whatever other measure we decide). e.g. Albizu et al. (2020). The question here is: can we classify people who had an increase in thalamo-cortical connectivity using features from the MRI-current models?  --> I still have to do this part!
 
