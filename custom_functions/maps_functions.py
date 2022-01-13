@@ -25,7 +25,7 @@ def current_density_efield(e_field: np.ndarray, mask: np.ndarray, conductivities
         list of conductivities for each tissue included in the mask (1: 0.126, 2: 0.276, 
         3: 1.65)
         
-    
+
     Returns:
     -------
     numpy array with the same shape of e_field but current density values"""
