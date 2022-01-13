@@ -1,6 +1,6 @@
 Aloi Davide - PhD Student (UoB)
 
-Analysis of electric field magnitudes (wp2a dataset only at the moment) and correlation analysis with Dynamic Causal Modelling (DCM) results. 
+# Analysis of electric field magnitudes (wp2a dataset only at the moment) and correlation analysis with Dynamic Causal Modelling (DCM) results. 
 
 The goal of these analyses is to establish whether there is a relationship between single-subject electric field (E-field) magnitudes generated with the [ROAST](https://github.com/andypotatohy/roast#5-outputs-of-roast-software) pipeline (Huang et al., 2019) and changes in effective connectivity within the motor network, derived using DCM and parametric empirical bayes (PEB). 
 
@@ -8,10 +8,11 @@ The two analyses are:
 1) Correlation analysis between E-field magnitude - medians and max values - (or the current density?) in the motor cortex (M1) and Thalamus (Th) with self- / between-connectivities (M1 and Th only?) as derived from the DCM. e.g. Indahlastari et al. (2021). At the moment I am correlating e-field measures only with DCM measures derived from the contrast pre vs post Day-1 anodal only. However, I should also correlate those e-field measures with DCM measures derived from the contrast pre vs post Day-1 sham. I expect to find correlations between e-field measures and DCM measures for the anodal condition but not for sham. 
 2) Pattern-recognition analysis using support vector machine (SVM) learning algorithm on MRI-derived tDCS current models to provide classification of tDCS treatment response (as reflected by increased M1-TH or TH-M1 connectivity or whatever other measure we decide). e.g. Albizu et al. (2020). The question here is: can we classify people who had an increase in thalamo-cortical connectivity  using features from the MRI-current models? 
 
+NB: The two analyses require similar preprocessing steps.
 
-The two analyses require similar preprocessing steps. Here's the list of the steps I've done and the respective scripts.
+## Steps with respective scripts
+NB. WP2A dataset: I start from a dataset containing 22 folders (one per participant), each containing a T1 and a T2 scan. 
 
-WP2A: I start from a dataset containing 22 folders (one per participant), each containing a T1 and a T2 scan (except for subject 16 who has only a T1). 
 
 1) [Renaming of anatomical scans](https://github.com/Davi93/wp1_2_roast/blob/main/wp2a_roast_1_rename_scans.py): this renames the anatomical scans of each participant (i.e. sub-01_T1.nii etc). 
 2) [ROAST simulations](https://github.com/Davi93/wp1_2_roast/blob/main/wp2a_roast_2_roast_simulation.m): this script runs the ROAST simulations. In brief, ROAST outputs the following scans for each subject, while also using SPM routines for tissue segmentation: Voltage ("subjName_simulationTag_v.nii", unit in mV), E-field ("subjName_simulationTag_e.nii", unit in V/m) and E-field magnitude ("subjName_simulationTag_emag.nii", unit in V/m).
@@ -20,7 +21,7 @@ The settings I have used for the simulation are: (t1, {'C3',1.0,'Fp2',-1.0},'T2'
 4) [Ep values extraction from PEB result](https://github.com/Davi93/wp1_2_roast/blob/main/wp2a_roast_4_extract_single_dcms.m) (Day-1 only): this script, starting from [this](https://github.com/Davi93/wp1_2_roast/blob/main/wp2a_DCMfiles/PEB_preVsPostDay1.mat) .mat structure containing 66 PEBs (1 per participant / polarity), extracts the Ep values for each participant. The resulting [file](https://github.com/Davi93/wp1_2_roast/blob/main/wp2a_DCMfiles/Day1_all_EPvalues.mat) contains 66 matrices (participant 1 anodal, cathodal and sham, participant 2 ... 22).
 5) (no longer used) [Estimation of posterior probability](https://github.com/Davi93/wp1_2_roast/blob/main/wp2a_roast_5_single_subject_BMA.m) associated to each PEB extracted above. The script runs bayesian model averages for each PEB using the DCM function spm_dcm_peb_bmc. Results are saved in [this](https://github.com/Davi93/wp1_2_roast/blob/main/wp2a_DCMfiles/PEB_preVsPostDay1.mat) .mat structure.
 6) [WP2a e-magnitude measures estimation and correlation analysis](https://github.com/Davi93/wp1_2_roast/blob/main/wp2a_roast_6_data_analysis.ipynb).
-Steps: 
+Steps: (!!! This has to be updated)
    1) Load MNI template and M1/Th ROIs;
    2) Load .mat structure with Ep values; 
    3) For each subject: 
@@ -33,6 +34,14 @@ Steps:
       7) Plot smoothed E-field magnitude map;
       8) Run 16 correlations: 4 DCM measures and 4 E-field measures (medians and max values);
       9) Plot correlations.
+
+
+## Functions
+Functions are contained in folder [custom_functions](https://github.com/Davi93/wp1_2_roast/tree/main/custom_functions)
+
+### Module 1) [Maps functions](https://github.com/Davi93/wp1_2_roast/blob/main/custom_functions/maps_functions.py)
+These are functions that perform operations on maps.
+1) current_density_efield: calculates current density map starting from electric field magnitude map and brain mask. 
 
 
 Plots:
