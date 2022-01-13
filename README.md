@@ -38,7 +38,7 @@ Steps: (!!! This has to be updated)
 ## Functions
 Functions are contained in folder [custom_functions](https://github.com/Davi93/wp1_2_roast/tree/main/custom_functions)
 
-### [Maps functions](https://github.com/Davi93/wp1_2_roast/blob/main/custom_functions/maps_functions.py)
+### - [Maps functions](https://github.com/Davi93/wp1_2_roast/blob/main/custom_functions/maps_functions.py)
 These are functions that perform operations on maps.
 1) current_density_efield: calculates current density map starting from electric field magnitude map and brain mask. 
 
