@@ -6,7 +6,7 @@ import numpy as np
 import nilearn
 
 
-def current_density(e_field: np.ndarray, mask: np.ndarray, conductivities: list):
+def current_density_efield(e_field: np.ndarray, mask: np.ndarray, conductivities: list):
     """Computing current density (J) from electric field magnitude map and tissue
     conductivities (s) of each voxel in accordance with Ohm’s law: J = sE.
     Default conductivity values (S/m) could be:
