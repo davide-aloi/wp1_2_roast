@@ -1,6 +1,6 @@
 Aloi Davide - PhD Student (University of Birmingham - Centre for Human Brain Health)
 
-# Analysis of electric field magnitudes and correlation analysis with Dynamic Causal Modelling (DCM) results
+# Analysis of current density and correlation analysis with Dynamic Causal Modelling (DCM) results
 
 The goal of these analyses is to establish whether there is a relationship between single-subject electric field (E-field) magnitudes generated with the [ROAST](https://github.com/andypotatohy/roast#5-outputs-of-roast-software) pipeline (Huang et al., 2019) and changes in effective connectivity within the motor network, derived using DCM and parametric empirical bayes (PEB). 
 
