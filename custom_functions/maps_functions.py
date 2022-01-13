@@ -14,7 +14,7 @@ def current_density_efield(e_field: np.ndarray, mask: np.ndarray, conductivities
     Cerebrospinal fluid = 1.65 (S/m)
 
     Args:
-    E_field (numpy array): array with electric field magnitude values.
+    e_field (numpy array): array with electric field magnitude values.
 
     mask (numpy array): array of integers (i.e. 1 = white matter, 2 = grey matter, 3 =
     cerebrospinal fluid etc).
