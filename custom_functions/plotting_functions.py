@@ -74,6 +74,7 @@ def roast_vector_sim(e: np.ndarray, e_mag: np.ndarray, mask: np.ndarray, vmin = 
             x = -e[which_slice,:,:, 0]
             y = -e[which_slice,:,:, 1]
             
+            
         if axis == 1:
             e_mag = np.where(mask[:, which_slice, :] != 0, e_mag[:, which_slice, :], 0) 
             x = -e[:,which_slice,:, 0]
