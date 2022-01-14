@@ -2,15 +2,76 @@
 """
 Created on Thu Jan 13 16:53:48 2022
 
-@author: davide
+@author: Davide Aloi
 """
 
-from mpl_toolkits.mplot3d import axes3d
+import glob, os
+
 import matplotlib.pyplot as plt
 import numpy as np
 from nilearn import image, plotting
 from nilearn.image import new_img_like
-import glob, os
+from nilearn.image import resample_img
+
+
+def roast_vector_sim(e: np.ndarray, e_mag: np.ndarray, mask: np.ndarray, vmin = 0, 
+                     vmax = 0.35, vmin_v = 0.1, axis = 2, which_slice = 0, subsample = 2,
+                     scale = 3): 
+
+    if (e.shape[0:3] != mask.shape != mask.shape):
+        raise Exception("Electric field map and mask should have the same dimension.")
+    
+    
+    if not np.isin(axis, [0, 1, 2]):
+        raise Exception("Invalid axis. Axis can only be equal to 0 (x) 1 (y) or 2 (z).")
+    
+    
+    if e_mag.shape[axis] > which_slice:
+        if axis == 0:
+            e_mag = np.where(mask[which_slice, :, :] != 0, e_mag[which_slice, :, :], 0)
+            e_mag = np.rot90(e_mag, 1)
+            
+            x = np.rot90(np.copy(e[which_slice,:,:, 0]),1)
+            y = np.rot90(np.copy(e[which_slice,:,:, 1]),1)
+            
+        if axis == 1:
+          e_mag = np.where(mask[:, which_slice, :] != 0, e_mag[:, which_slice, :], 0)
+          e_mag = np.rot90(np.flip(e_mag, 1),3)
+          
+          x = np.rot90(np.flip(np.copy(e[:,which_slice,:, 0]), 1), 3)
+          y = np.rot90(np.flip(np.copy(e[:,which_slice,:, 2]), 1), 3)
+        
+
+        if axis == 2:
+            e_mag = np.where(mask[:, :, which_slice] != 0, e_mag[:, :, which_slice], 0)
+            e_mag = np.rot90(np.flip(e_mag, 1), 3)
+
+            x = np.copy(np.rot90(np.flip(e[:,:,which_slice, 1],1),3))
+            y = np.copy(np.rot90(np.flip(e[:,:,which_slice, 2],1),3))
+            
+            
+            
+            
+        idxs = np.zeros(x.ravel().size, bool)
+        idxs[::subsample] = 1         
+        idxs = np.where((e_mag.ravel() > vmin_v) & (idxs == 1), 1, 0)
+        idxs = idxs.reshape(x.shape)
+        x = np.where(idxs == 1, x, np.nan)
+        yy = np.where(idxs == 1, y, np.nan)
+
+        plt.imshow(e_mag, cmap=plt.get_cmap('jet'), vmin=vmin, vmax=vmax)
+        plt.quiver(x, y, scale = scale, 
+                   minlength = 2,
+                   headwidth = 3, headlength = 3, alpha = 0.7,
+                   linewidth = 0.2)
+        plt.show() 
+        
+    else:
+        raise Exception("Slice chosen exceeds scan dimension on chosen axis (" + str(axis) + ")\n" 
+                        "Scan shape: " + str(e_mag.shape) + "\n"
+                        "Sclice chosen: " + str(which_slice))   
+        
+          
 
 main_folder = 'C:\\Users\\davide\\Documents\\GitHub\\wp1_2_roast\\' 
 path = 'D:\\roast-chapter3\\wp2a_copy\\sub-01'
@@ -31,36 +92,18 @@ mask_touched = image.math_img("(np.where(np.isin(img, np.arange(1, 4)), img, 0))
                               img = mask,
                               img2 = mni_resampled)
 
+mask_touched = image.math_img("np.where(img == 2, 1,0)",
+                              img = mask_touched)
 
+emag_map = image.smooth_img(emag_map, fwhm = 4)
+e_v = image.smooth_img(e_v, fwhm = 4)
 
-plt.imshow(np.rot90(mask_touched.get_fdata()[:,:,100]), cmap=plt.get_cmap('Paired'))
+roast_vector_sim(e_v.get_fdata(), emag_map.get_fdata(), mask_touched.get_fdata(),
+                 axis = 2,
+                 vmin = 0, vmax = 0.16,
+                 subsample = 20,
+                 vmin_v = 0.02,
+                 which_slice = 100,
+                 scale = 3)
 
-
-
-from nilearn.image import resample_img
-
-v = emag_map.get_fdata()[:,:,100]
-v = np.rot90(np.flip(v,1),3)
-
-x = np.copy(np.rot90(np.flip(e_v.get_fdata()[:,:,100,0],1),3))
-y = np.copy(np.rot90(np.flip(e_v.get_fdata()[:,:,100,1],1),3))
-
-idxs = np.zeros(x.ravel().size, bool)
-idxs[::15] = 1
-
-idxs = np.where((v.ravel() > 0.1) & (idxs == 1), 1, 0)
-
-
-idxs = idxs.reshape(x.shape)
-
-x2 = np.where(idxs == 1, x, np.nan)
-y2 = np.where(idxs == 1, y, np.nan)
-
-
-plt.imshow(v, cmap=plt.get_cmap('jet'), vmin=0.0001, vmax=0.35)
-
-
-plt.quiver(x2, y2)
-
-plt.show()
 
