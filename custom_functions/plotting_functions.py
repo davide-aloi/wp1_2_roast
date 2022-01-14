@@ -83,7 +83,7 @@ def roast_vector_sim(e: np.ndarray, e_mag: np.ndarray, mask: np.ndarray, vmin = 
         if axis == 2:
             e_mag = np.where(mask[:, :, which_slice] != 0, e_mag[:, :, which_slice], 0) 
             x = -e[:,:,which_slice, 1]
-            y = -e[:,:,which_slice:, 2]
+            y = -e[:,:,which_slice, 2]
             
      
         idxs = np.zeros(x.ravel().size, bool)
