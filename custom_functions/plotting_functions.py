@@ -85,7 +85,6 @@ def roast_vector_sim(e: np.ndarray, e_mag: np.ndarray, mask: np.ndarray, vmin = 
             x = -e[:,:,which_slice, 1]
             y = -e[:,:,which_slice, 2]
             
-     
         idxs = np.zeros(x.ravel().size, bool)
         idxs[::subsample] = 1         
         idxs = np.where(((e_mag.ravel() > vmin_v) & (e_mag.ravel() < vmax_v)) & (idxs == 1), 1, 0)
