@@ -36,9 +36,12 @@ Steps: (!!! This has to be updated)
 ## Functions
 Functions are contained in folder [custom_functions](https://github.com/Davi93/wp1_2_roast/tree/main/custom_functions)
 
-### [Maps functions](https://github.com/Davi93/wp1_2_roast/blob/main/custom_functions/maps_functions.py)
+-- [Maps functions](https://github.com/Davi93/wp1_2_roast/blob/main/custom_functions/maps_functions.py)
 These are functions that perform operations on MRI scans.
 - current_density_efield: calculates current density map starting from electric field magnitude map and brain mask. 
+
+-- [Plotting functions](https://github.com/Davi93/wp1_2_roast/blob/main/custom_functions/plotting_functions.py)
+- roast_vector_sim: plots electric field directions and intensities. 
 
 ## Plots
 ![e-field_figure](https://user-images.githubusercontent.com/4202630/149754221-386e4582-4a39-4723-8e4f-cd94f999f839.png)
