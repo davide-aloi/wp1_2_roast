@@ -5,11 +5,9 @@ Aloi Davide - PhD Student (University of Birmingham - Centre for Human Brain Hea
 The goal of these analyses is to establish whether there is a relationship between single-subject electric field (E-field) magnitudes generated with the [ROAST](https://github.com/andypotatohy/roast#5-outputs-of-roast-software) pipeline (Huang et al., 2019) and changes in effective connectivity within the motor network, derived using DCM and parametric empirical bayes (PEB). 
 
 The two analyses are:
-1) Correlation analysis between current density - medians and max values - in the motor cortex (M1) and Thalamus (Th), and self- / between-connectivities, as derived from the DCM. e.g. Indahlastari et al. (2021). At the moment I am correlating current density measures only with DCM measures derived from the contrast pre vs post Day-1 anodal only. However, I should also correlate those current density measures with DCM measures derived from the contrast pre vs post Day-1 sham. I expect to find correlations between e-field measures and DCM measures for the anodal condition but not for sham. 
+1) Correlation analysis between current density - medians and max values - in the motor cortex (M1) and Thalamus (Th), and self- / between-connectivities, as derived from the DCM. e.g. Indahlastari et al. (2021). At the moment I am correlating current density measures with DCM measures derived from the contrast pre vs post Day-1 anodal and pre vs post Day-1 sham.
 
-2) Pattern-recognition analysis using support vector machine (SVM) learning algorithm on MRI-derived tDCS current models to provide classification of tDCS treatment response (as reflected by increased M1-TH or TH-M1 connectivity or whatever other measure we decide). e.g. Albizu et al. (2020). The question here is: can we classify people who had an increase in thalamo-cortical connectivity using features from the MRI-current models?  --> I still have to do this part!
-
-NB: The two analyses require similar preprocessing steps.
+2) Pattern-recognition analysis using support vector machine (SVM) learning algorithm on MRI-derived tDCS current models to provide classification of tDCS treatment response, as reflected by increased M1-TH or TH-M1 connectivity (or whatever other measure we decide). e.g. Albizu et al. (2020). The question is: can we classify people who had an increase in thalamo-cortical connectivity using features from the MRI-current models?  --> Working on this part!
 
 ## Steps with respective scripts
 NB. I am working on the WP2A dataset only at the moment. The dataset has 22 folders (one per participant), each containing a T1 and a T2 scan. 
@@ -42,14 +40,17 @@ Functions are contained in folder [custom_functions](https://github.com/Davi93/w
 These are functions that perform operations on MRI scans.
 - current_density_efield: calculates current density map starting from electric field magnitude map and brain mask. 
 
-
-
 ## Plots
-![Sticky note mind map - Sticky note mind map](https://user-images.githubusercontent.com/4202630/148744899-831ed72d-4f5a-4428-aa23-046fffadbbda.png)
+![e-field_figure](https://user-images.githubusercontent.com/4202630/149754221-386e4582-4a39-4723-8e4f-cd94f999f839.png)
+![current_density_figure](https://user-images.githubusercontent.com/4202630/149754258-0eecab03-5c3a-431a-a19c-42adada65021.png)
 
 
+## To Do list
 
-
+1) finish machine learning part script;
+2) reorganise the code;
+3) analyse wp1a and wp1b datasets;
+4) add summary to readme page;
 
 ## References:
 1) Huang, Y., Datta, A., Bikson, M., & Parra, L. C. (2019). Realistic volumetric-approach to simulate transcranial electric stimulation—ROAST—a fully automated open-source pipeline. Journal of Neural Engineering, 16(5), 056006. https://doi.org/10.1088/1741-2552/ab208d
