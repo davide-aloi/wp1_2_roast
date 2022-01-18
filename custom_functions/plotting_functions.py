@@ -10,8 +10,7 @@ import glob, os
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.pyplot import figure
-
-
+from scipy.spatial.transform import Rotation as R
 
 def roast_vector_sim(e: np.ndarray, e_mag: np.ndarray, mask: np.ndarray, vmin = 0,
                      vmax = 0.35, vmin_v = 0.1, vmax_v = 2, axis = 2, which_slice = 0,
@@ -66,18 +65,32 @@ def roast_vector_sim(e: np.ndarray, e_mag: np.ndarray, mask: np.ndarray, vmin = 
     if not np.isin(axis, [0, 1, 2]):
         raise Exception("Invalid axis. Axis can only be equal to 0 (x) 1 (y) or 2 (z).")
 
-    if e_mag.shape[axis] > which_slice:
-        if axis == 0:
-            e_mag = np.where(mask[which_slice, :, :] != 0, e_mag[which_slice, :, :], 0)
-            x = -e[which_slice,:,:, 0]
-            y = -e[which_slice,:,:, 1]
 
+
+
+    if e_mag.shape[axis] > which_slice:
+        
+        
+        if axis == 0:
+            
+            # NB: Voxels are organised from right to left!
+            e_mag = np.where(mask[which_slice, :, :] != 0, e_mag[which_slice, :, :], 0)        
+            x = e[which_slice,:,:, 0]
+            y = e[which_slice,:,:, 1]
+            e_mag = np.rot90(e_mag, 1)
+            x = -np.rot90(x, 1)
+            y = -np.rot90(y, 1)
+            
         if axis == 1:
             e_mag = np.where(mask[:, which_slice, :] != 0, e_mag[:, which_slice, :], 0)
-            x = -e[:,which_slice,:, 0]
-            y = -e[:,which_slice,:, 2]
-
+            x = e[:,which_slice,:, 0]
+            y = e[:,which_slice,:, 2]
+            x = np.flip(np.rot90(x),-1)
+            y = np.flip(np.rot90(y),-1)
+            e_mag = np.flip(np.rot90(e_mag),-1)
+            
         if axis == 2:
+            # NB: Voxels are organised from right to left!
             e_mag = np.where(mask[:, :, which_slice] != 0, e_mag[:, :, which_slice], 0)
             x = -e[:,:,which_slice, 1]
             y = -e[:,:,which_slice, 2]
