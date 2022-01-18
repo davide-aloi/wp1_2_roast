@@ -73,28 +73,30 @@ def roast_vector_sim(e: np.ndarray, e_mag: np.ndarray, mask: np.ndarray, vmin = 
         
         if axis == 0:
             
-            # NB: Voxels are organised from right to left!
-            e_mag = np.where(mask[which_slice, :, :] != 0, e_mag[which_slice, :, :], 0)        
-            x = e[which_slice,:,:, 0]
-            y = e[which_slice,:,:, 1]
-            e_mag = np.rot90(e_mag, 1)
-            x = -np.rot90(x, 1)
-            y = -np.rot90(y, 1)
+            # Flipping left -> right (x axis)
+            e_mag = np.flip(e_mag, 0)
+            e = np.flip(e, 0)
+            e_mag = np.where(mask[which_slice, :, :] != 0, e_mag[which_slice, :, :], 0)
+            x = -e[which_slice,:,:, 0]
+            y = -e[which_slice,:,:, 1]
+
             
         if axis == 1:
             e_mag = np.where(mask[:, which_slice, :] != 0, e_mag[:, which_slice, :], 0)
+            e_mag = np.flip(np.rot90(e_mag),-1) # flipping x axis
             x = e[:,which_slice,:, 0]
             y = e[:,which_slice,:, 2]
             x = np.flip(np.rot90(x),-1)
             y = np.flip(np.rot90(y),-1)
-            e_mag = np.flip(np.rot90(e_mag),-1)
             
         if axis == 2:
-            # NB: Voxels are organised from right to left!
             e_mag = np.where(mask[:, :, which_slice] != 0, e_mag[:, :, which_slice], 0)
-            x = -e[:,:,which_slice, 1]
-            y = -e[:,:,which_slice, 2]
+            e_mag = np.flip(e_mag, 0) # flipping y axis 
+            x = np.flip(e[:,:,which_slice, 1], 0)
+            y = np.flip(e[:,:,which_slice, 2], 0)
 
+            
+            
         idxs = np.zeros(x.ravel().size, bool)
         idxs[::subsample] = 1
         idxs = np.where(((e_mag.ravel() > vmin_v) & (e_mag.ravel() < vmax_v)) & (idxs == 1), 1, 0)
