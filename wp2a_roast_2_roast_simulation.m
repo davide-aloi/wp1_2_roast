@@ -17,6 +17,7 @@ for i = 1:length(participants)
     t2 = dir(fullfile(folder, 't2*.nii'))
     t2 = fullfile(t2.folder, t2.name)
     roast(t1, {'C3',1.0,'Fp2',-1.0}, 'T2', t2, 'electype', 'pad', 'elecsize', [50 50 3], 'capType', '1020')
+    close all % necessary to free some RAM
 end
 
 %Running roast simulations for wp2a participants with t1 only
@@ -25,4 +26,5 @@ for i = 1:length(participants_onlyt2)
     folder = fullfile(data_path, strcat('sub-', p))
     t1 = fullfile(folder, strcat('sub-', p, '_T1.nii'))
     roast(t1, {'C3', 1.0, 'Fp2', -1.0}, 'electype', 'pad', 'elecsize', [50 50 3], 'capType', '1020')
+    close all % necessary to free some RAM
 end
