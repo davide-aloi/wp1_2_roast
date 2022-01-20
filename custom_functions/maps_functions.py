@@ -1,5 +1,5 @@
 """
-Author: Davide Aloi - PhD student - University of Birmingham
+Author: Davide Aloi - PhD student - University of Birmingham - Centre for Human Brain Health
 """
 import numpy as np
 
@@ -28,7 +28,7 @@ def current_density_efield(e_field: np.ndarray, mask: np.ndarray, conductivities
 
     Returns:
     -------
-    numpy array with the same shape of e_field but current density values"""
+    numpy array with the same shape of e_field and with current density values"""
     
     
     if e_field.shape != mask.shape:

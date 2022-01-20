@@ -1,5 +1,5 @@
 """
-@author: Davide Aloi - PhD student - University of Birmingham
+Author: Davide Aloi - PhD student - University of Birmingham - Centre for Human Brain Health
 """
 
 import glob, os
