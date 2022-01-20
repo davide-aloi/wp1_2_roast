@@ -1,9 +1,5 @@
-# -*- coding: utf-8 -*-
 """
-Created on Thu Jan 13 16:53:48 2022
-
 @author: Davide Aloi - PhD student - University of Birmingham
-NB: Still have to add comments
 """
 
 import glob, os
