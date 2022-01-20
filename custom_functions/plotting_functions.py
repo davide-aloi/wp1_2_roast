@@ -62,20 +62,15 @@ def roast_vector_sim(e: np.ndarray, e_mag: np.ndarray, mask: np.ndarray, vmin = 
         raise Exception("Invalid axis. Axis can only be equal to 0 (x) 1 (y) or 2 (z).")
 
 
-
-
     if e_mag.shape[axis] > which_slice:
         
-        
-        if axis == 0:
-            
+        if axis == 0:  
             # Flipping left -> right (x axis)
             e_mag = np.flip(e_mag, 0)
             e = np.flip(e, 0)
             e_mag = np.where(mask[which_slice, :, :] != 0, e_mag[which_slice, :, :], 0)
             x = -e[which_slice,:,:, 0]
             y = -e[which_slice,:,:, 1]
-
             
         if axis == 1:
             e_mag = np.where(mask[:, which_slice, :] != 0, e_mag[:, which_slice, :], 0)
@@ -91,8 +86,7 @@ def roast_vector_sim(e: np.ndarray, e_mag: np.ndarray, mask: np.ndarray, vmin = 
             x = np.flip(e[:,:,which_slice, 1], 0)
             y = np.flip(e[:,:,which_slice, 2], 0)
 
-            
-            
+         
         idxs = np.zeros(x.ravel().size, bool)
         idxs[::subsample] = 1
         idxs = np.where(((e_mag.ravel() > vmin_v) & (e_mag.ravel() < vmax_v)) & (idxs == 1), 1, 0)
@@ -106,7 +100,6 @@ def roast_vector_sim(e: np.ndarray, e_mag: np.ndarray, mask: np.ndarray, vmin = 
                    minlength = 2,
                    headwidth = 3, headlength = 3, alpha = 0.7,
                    linewidth = 0.2)
-
         ax.axis('off')
 
         return ax
