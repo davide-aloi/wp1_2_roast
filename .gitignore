@@ -54,6 +54,4 @@ $RECYCLE.BIN/
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
 
-.ipynb_checkpoints/
-wp2a_wp2a_e-mag_all_example.jpg
-wp1b_DCMfiles/
+/.ipynb_checkpoints/*
