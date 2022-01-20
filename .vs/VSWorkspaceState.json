@@ -1,8 +1,12 @@
 {
-  "ExpandedNodes": [
-    "",
-    "\\custom_functions"
+  "folders": [
+      {
+          "path": "."
+      }
   ],
-  "SelectedNode": "\\wp2a_roast_6_data_analysis.ipynb",
-  "PreviewInSolutionExplorer": true
-}
+  "settings": {
+      "python.condaPath": "C:/Users/davide/miniconda3/condabin",
+      "python.pythonPath": "C:/Users/davide/miniconda3/envs/neuroimg/bin/python",
+      "python.terminal.activateEnvironment": true,
+      "python.terminal.activateEnvInCurrentTerminal": true,      
+  }
