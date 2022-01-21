@@ -1,22 +1,35 @@
-% Davide Aloi - PhD student - University of Birmingham
-% Script to run roast simulation for Wp1b (1.85mA cathodal on right cerebellum, cathodal over right buccinator muscle)
+% Davide Aloi - PhD student - University of Birmingham - Centre for Human
+% Brain Health.
 
-data_path = 'D:\roast-chapter3\wp1b\'; % Main folder
+%% Content
+% Script to run roast simulations for Wp1b  dataset (-1.85mA cathodal on right
+% cerebellum, +1.85mA anodal over right buccinator muscle)
 
-%List of Wp2a participants that have both a T1 and a T2
-participants = {'01','02','03','04','05','06','07','08','09','10','11','12','13','15','16','17','18','19','20','21','22','23'}
-participants = {'01','02'}
+%% Updates
+% 20/01/2022: I am now running roast using only T1s. Many Wp1b T2s have artefacts and
+% mess up the segmentation (i.e. weird masks, failed segmentations).
 
-% Running roast simulations for all wp1b participants with t1 and t2
+%% Code
+
+data_path = '/projects/chbh00025/wp1b_roast'; % Main folder
+
+%List of Wp1b participants
+participants = {'01','02','03','04','05','06','07','08','09','10','11','12','13','15','16','17','18','19','21','22','23'}
+participants = {'13','15','16','17','18','19','21','22','23'}
+
+%% Roast settings:
 % Anode over the right cheek (e239 in egi system)
 % Cathode over right cerebellum (e157)
+% Current: 1.85mA [pad size 50x50x3]
+
 for i = 1:length(participants)
     p = participants{i}
     folder = fullfile(data_path, strcat('sub-', p))
     t1 = dir(fullfile(folder, '*T1*.nii'))
     t1 = fullfile(t1.folder, t1.name)
-    t2 = dir(fullfile(folder, '*T2*.nii'))
-    t2 = fullfile(t2.folder, t2.name)
-    roast(t1, {'E239', 1.85,'E157', -1.85}, 'T2', t2, 'electype', 'pad', 'elecsize', [50 50 3], 'capType', 'egi')
+    %t2 = dir(fullfile(folder, '*T2*.nii'))
+    %t2 = fullfile(t2.folder, t2.name)
+    %roast(t1, {'E239', 1.85,'E157', -1.85}, 'T2', t2, 'electype', 'pad', 'elecsize', [50 50 3], 'capType', 'egi')
+    roast(t1, {'E239', 1.85,'E157', -1.85}, 'electype', 'pad', 'elecsize', [50 50 3], 'capType', 'egi')
     close all % necessary to free some RAM
 end
