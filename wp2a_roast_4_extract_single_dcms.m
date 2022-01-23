@@ -1,4 +1,4 @@
-% Aloi Davide - University of Birmingham
+% Author: Davide Aloi - PhD student - University of Birmingham
 
 % The script extracts EP values for each subject, for the contrast pre vs post stimulation, Day-1 only.
 

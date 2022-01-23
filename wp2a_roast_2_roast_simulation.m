@@ -1,4 +1,4 @@
-% Davide Aloi - PhD student - University of Birmingham
+% Author: Davide Aloi - PhD student - University of Birmingham
 % Script to run roast simulation for Wp2a (1mA anodal on left M1, cathodal on right orbitofrontal cortex)
 
 data_path = 'D:\roast-chapter3\wp2a\'; % Main folder

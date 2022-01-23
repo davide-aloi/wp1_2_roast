@@ -1,4 +1,4 @@
-% Aloi Davide - University of Birmingham
+% Author: Davide Aloi - PhD student - University of Birmingham
 
 % The script applies BMR and BMA on each subjects' PEB model (pre < post) to reduce connections that were not adding to the models evidence.
 % This is done for all 3 stimulation modalities (anodal, cathodal and sham).
