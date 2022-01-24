@@ -61,5 +61,5 @@ for crun = 1:nrun
     inputs{4, crun} = c_masks_names; % Normalise: Write: Images to Write - cfg_files
 end
 
-spm('defaults', 'FMRI');
-spm_jobman('run', jobs, inputs{:});
+%spm('defaults', 'FMRI');
+%spm_jobman('run', jobs, inputs{:});

@@ -10,6 +10,7 @@
 % mess up the segmentation (i.e. weird masks, failed segmentations).
 
 %% Code
+
 data_path = '/projects/chbh00025/wp1b_roast'; % Main folder
 
 %List of Wp1b participants
