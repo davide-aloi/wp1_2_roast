@@ -9,14 +9,12 @@ Three datasets are analysed:
 - wp2a: same design as above but the stimulation was administered along with passive mobilisation of the thumb. The target of the stimulation was the left motor cortex. Participants received 5 stimulations per week, with one week gap between each stimulation condition, and were scanned on Day-1 and Day-5 of each week. I am analysing only DCM data from Day-1.
 
 The two analyses are:
-1) Correlation analysis between current density (that is, medians and max values of M1, Thalamus and Cerebellum) and DCM values (changes in effective connectivity after stimulation). 
+1) Correlation analysis between current density (that is, medians and max values of M1, Thalamus and Cerebellum) and DCM values (changes in effective connectivity after stimulation).  ---> STILL DOING CCA
 
-2) Pattern-recognition analysis using support vector machine (SVM) learning algorithm on MRI-derived tDCS current models to provide classification of tDCS treatment response, as reflected by increased M1-TH or TH-M1 connectivity (or whatever other measure we decide). e.g. Albizu et al. (2020). The question is: can we classify people who had an increase in thalamo-cortical connectivity using features from the MRI-current models?  --> Working on this part!
+2) Pattern-recognition analysis using support vector machine (SVM) learning algorithm on MRI-derived tDCS current models to provide classification of tDCS treatment response, as reflected by increased M1-TH or TH-M1 connectivity (or whatever other measure we decide). e.g. Albizu et al. (2020). The question is: can we classify people who had an increase in thalamo-cortical connectivity using features from the MRI-current models?  --> STILL WORKING ON THIS
 
 ## Steps with respective scripts
-NB. I am working on the WP2A dataset only at the moment. The dataset has 22 folders (one per participant), each containing a T1 and a T2 scan. 
-The simulation settings for wp2a (anodal over M1, cathodal over right OFC) are: (t1, {'C3',1.0,'Fp2',-1.0},'T2', t2,'electype', 'pad', 'elecsize', [50 50 3], 'capType', '1020').
-
+NB. UPDATING THIS WITH NEW SCRIPTS
 
 1) [Rename files](https://github.com/Davi93/wp1_2_roast/blob/main/wp2a_roast_1_rename_scans.py): this renames the anatomical scans of each participant (i.e. sub-01_T1.nii etc). 
 2) [ROAST simulations](https://github.com/Davi93/wp1_2_roast/blob/main/wp2a_roast_2_roast_simulation.m): this script runs the ROAST simulations. In brief, ROAST outputs the following scans for each subject, while also using SPM routines for tissue segmentation: Voltage ("subjName_simulationTag_v.nii", unit in mV), E-field ("subjName_simulationTag_e.nii", unit in V/m) and E-field magnitude ("subjName_simulationTag_emag.nii", unit in V/m).
