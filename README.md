@@ -1,11 +1,14 @@
 Aloi Davide - PhD Student (University of Birmingham - Centre for Human Brain Health)
 
-# Analysis of current density and correlation analysis with Dynamic Causal Modelling (DCM) results
+# Analysis of relationship between tDCS-induced current density and effective connectivity changes in the motor network
 
-The goal of these analyses is to establish whether there is a relationship between single-subject electric field (E-field) magnitudes generated with the [ROAST](https://github.com/andypotatohy/roast#5-outputs-of-roast-software) pipeline (Huang et al., 2019) and changes in effective connectivity within the motor network, derived using DCM and parametric empirical bayes (PEB). 
+The goal of these analyses is to assess the relationship between current density, as simulated with the [ROAST](https://github.com/andypotatohy/roast#5-outputs-of-roast-software) pipeline (Huang et al., 2019), and effective connectivity changes within the motor network, derived using DCM and parametric empirical bayes (PEB). 
+
+Three datasets are analysed: 
+- wp1a and wp1b: participants received one session of anodal, cathodal and sham stimulations, in a counterbalanced order. Connectivity in the motor network was estimated using dynamic causal modelling (DCM) both before and after stimulation, while participants performed a motor task (simple thumb movement). PEB was then used to estimate the differences between pre and post stimulation. In these analyses, we use single-subject changes in connectivity and correlate them with current density metrics. The datasets are the same of [Aloi et al. (2021)](https://www.sciencedirect.com/science/article/pii/S1053811921010533?via%3Dihub).
 
 The two analyses are:
-1) Correlation analysis between current density - medians and max values - in the motor cortex (M1) and Thalamus (Th), and self- / between-connectivities, as derived from the DCM. e.g. Indahlastari et al. (2021). At the moment I am correlating current density measures with DCM measures derived from the contrast pre vs post Day-1 anodal and pre vs post Day-1 sham.
+1) Correlation analysis between current density (that is, medians and max values of M1, Thalamus and Cerebellum) and DCM values (changes in effective connectivity after stimulation). 
 
 2) Pattern-recognition analysis using support vector machine (SVM) learning algorithm on MRI-derived tDCS current models to provide classification of tDCS treatment response, as reflected by increased M1-TH or TH-M1 connectivity (or whatever other measure we decide). e.g. Albizu et al. (2020). The question is: can we classify people who had an increase in thalamo-cortical connectivity using features from the MRI-current models?  --> Working on this part!
 
