@@ -14,7 +14,6 @@ The two analyses are:
 2) Pattern-recognition analysis using support vector machine (SVM) learning algorithm on MRI-derived tDCS current models to provide classification of tDCS treatment response, as reflected by increased M1-TH or TH-M1 connectivity (or whatever other measure we decide to use). e.g. Albizu et al. (2020). The question is: can we classify people who had an increase in thalamo-cortical connectivity using features from the MRI-current models?
 
 ## Analysis steps and scripts
-NB. UPDATING WITH NEW SCRIPTS
 
 1) [Rename files](https://github.com/Davi93/wp1_2_roast/blob/main/wp2a_roast_1_rename_scans.py): this renames the anatomical scans of each participant (i.e. sub-01_T1.nii etc) of dataset wp2a. 
 2) Roast simulations: in brief, ROAST outputs the following scans for each subject, while also using SPM routines for tissue segmentation: Voltage ("subjName_simulationTag_v.nii", unit in mV), E-field ("subjName_simulationTag_e.nii", unit in V/m) and E-field magnitude ("subjName_simulationTag_emag.nii", unit in V/m). This was done for all three datasets, using the following parameters:
