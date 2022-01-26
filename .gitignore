@@ -56,3 +56,5 @@ $RECYCLE.BIN/
 
 /.ipynb_checkpoints/*
 __init__.py
+deprecated/wp2a_roast_6_data_analysis_deprecated.ipynb
+deprecated_scripts/wp2a_roast_6_data_analysis_deprecated.ipynb
