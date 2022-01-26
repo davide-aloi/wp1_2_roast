@@ -22,8 +22,8 @@ def current_density_efield(e_field: np.ndarray, mask: np.ndarray, conductivities
         fluid etc).
 
     conductivities: list
-        list of conductivities for each tissue included in the mask (1: 0.126, 2: 0.276, 
-        3: 1.65)
+        list of conductivities for each tissue included in the mask (0: 0.126, 1: 0.276, 
+        2: 1.65)
         
 
     Returns:
