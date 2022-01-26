@@ -26,7 +26,7 @@ The two analyses are:
 6) Current density calculation: the script calculates current density for each subject of each dataset, using the function current_density_efield (see below). Results are saved in 3 different 4d scans (one per dataset, with 1 volume per subject). Scripts: [wp2a, wp1a, wp1b](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_6_current_density_calculation.ipynb).
 7) Current density metrics: the script calculates median and max current density values for each subject and dataset, for the three ROIs left M1, left thalamus and right cerebellum. Results are saved in three .CSV files. Scripts: [wp2a, wp1a, wp1b](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_7_current_density_metrics.ipynb).
 8) Correlation analysis between current density metrics and DCM metrics. I still have to implement CCA. Script: [wp2a, wp1a, wp1b](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_8_current_density_cor.ipynb). 
-9) SVM analysis: pattern-recognition analysis using SVC. I need to update the script. [wp2a, wp1a, wp1b](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_roast_9_SVM.ipynb).
+9) SVM analysis: pattern-recognition analysis using SVC. I need to update the script. Script: [wp2a, wp1a, wp1b](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_roast_9_SVM.ipynb).
 
 ## Functions
 Functions are contained in folder [custom_functions](https://github.com/Davi93/wp1_2_roast/tree/main/custom_functions)
