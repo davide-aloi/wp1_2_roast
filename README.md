@@ -30,7 +30,7 @@ NB. UPDATING WITH NEW SCRIPTS
 ## Functions
 Functions are contained in folder [custom_functions](https://github.com/Davi93/wp1_2_roast/tree/main/custom_functions)
 
--- [Functions](https://github.com/Davi93/wp1_2_roast/blob/main/custom_functions/maps_functions.py): these are functions that perform operations on MRI scans.
+-- [Functions](https://github.com/Davi93/wp1_2_roast/blob/main/custom_functions/maps_functions.py): these are functions that perform operations on scans.
 - current_density_efield: calculates current density starting from electric field magnitude and a brain mask. 
 
 -- [Plotting functions](https://github.com/Davi93/wp1_2_roast/blob/main/custom_functions/plotting_functions.py)
