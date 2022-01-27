@@ -36,7 +36,7 @@ def current_density_efield(e_field: np.ndarray, mask: np.ndarray, conductivities
         
     current_density = np.zeros(e_field.shape)
     
-    tissue = 1
+    tissue = 1 # ignoring tissue = 0
     for conductivity in conductivities:
         tissue_mask = np.where(mask == tissue, e_field, 0)
         current_density += tissue_mask * conductivity
