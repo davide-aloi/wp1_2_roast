@@ -21,7 +21,7 @@ for i = 1:length(participants)
     t1 = fullfile(folder, strcat('sub-', p, '_T1.nii'))
     t2 = dir(fullfile(folder, 't2*.nii'))
     t2 = fullfile(t2.folder, t2.name)
-    roast(t1, {'custom1',1.0,'custom2',-1.0}, 'T2', t2, 'electype', 'pad', 'elecsize', [50 50 3])
+    roast(t1, {'custom1', 1.0,'custom2', -1.0}, 'T2', t2, 'electype', 'pad', 'elecsize', [50 50 3])
     close all % necessary to free some RAM
 end
 
