@@ -3,7 +3,7 @@
 
 data_path = '/projects/chbh00025/wp1a_roast/'; % Main folder
 
-%List of Wp1a participants that have both a T1 and a T2
+%List of Wp1a participants
 participants = {'03','04','05','07','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26'}
 
 
@@ -14,7 +14,7 @@ for i = 1:length(participants)
     t1 = fullfile(folder, 'T1.nii')
     %t2 = dir(fullfile(folder, 't2*.nii'))
     %t2 = fullfile(t2.folder, t2.name)
-    roast(t1, {'C3',1.0,'Fp2',-1.0}, 'electype', 'pad', 'elecsize', [50 50 3], 'capType', '1020')
+    roast(t1, {'custom1', 1.0,'custom2', -1.0}, 'electype', 'pad', 'elecsize', [50 50 3])
     close all % necessary to free some RAM
 end
 
