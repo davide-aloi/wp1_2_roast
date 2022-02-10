@@ -3,8 +3,8 @@
 # identified using MRIcronGL. The script also iterates through the folders and saves a file
 # .txt named customLocations.txt containing the coordinates for the active and reference
 # electrodes. 
-import os 
 
+import os 
 main_folder = 'C:\\Users\\davide\\Documents\\GitHub\\wp1_2_roast\\' 
 output_folder = 'D:\\roast-chapter3\\wp_all_results\\' # where to save results
 data_folder = 'D:\\roast-chapter3\\'
