@@ -15,7 +15,7 @@ db_subjects = [['03','04','05','07','09','10','11','12','13','14','15','16','17'
 
 # List of coordinates for each subject (return electrode: cathodal, active electrode: anodal)
 anod_coords = {
-            '03': (36,117,204),
+            '03': (36,117,204), # --> 163,131,175
             '04': (46,131,228),
             '05': (48,118,210),
             '07': (49,137,226),
