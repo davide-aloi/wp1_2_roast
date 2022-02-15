@@ -7,8 +7,10 @@
 data_path = 'D:\roast-chapter3\wp1a\'; %path to wp1a roast simulations
 
 % listof subjects
-participants = {'sub-04','sub-05','sub-07','sub-09','sub-10','sub-11','sub-12','sub-13','sub-14','sub-15','sub-16','sub-17','sub-18','sub-19','sub-20','sub-21','sub-22','sub-23','sub-24','sub-25','sub-26'}
-%participants = {'sub-03'}
+participants = {'sub-04','sub-05','sub-07','sub-10','sub-11','sub-12','sub-13','sub-14','sub-15','sub-16','sub-17','sub-18','sub-19','sub-20','sub-21','sub-22','sub-23','sub-24','sub-25','sub-26'}
+participants = {'sub-09'}
+
+
 nrun = length(participants); % this calculates the number of runs automatically
 jobfile = {'C:\Users\davide\Documents\GitHub\wp1_2_roast\wp2a_roast_3_post_roast_preprocessing_job.m'};
 jobs = repmat(jobfile, 1, nrun);

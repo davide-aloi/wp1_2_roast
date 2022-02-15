@@ -15,7 +15,7 @@ db_subjects = [['03','04','05','07','09','10','11','12','13','14','15','16','17'
 
 # List of coordinates for each subject (return electrode: cathodal, active electrode: anodal)
 anod_coords = {
-            '03': (36,117,204), # --> 163,131,175
+            '03': (36,117,204),
             '04': (46,131,228),
             '05': (48,118,210),
             '07': (49,137,226),
@@ -80,3 +80,37 @@ for db_id, db in enumerate(db_names): # Iterate all three datasets
             f.write('custom1 ' + str(anod[0]) + ' ' + str(anod[1]) + ' ' + str(anod[2]))
             f.writelines('\n')
             f.write('custom2 ' + str(cath[0]) + ' ' + str(cath[1]) + ' ' + str(cath[2]))
+
+
+
+
+# MNI coordinates from affine matrix 
+import numpy as np
+def matrix_to_mni(matrix_coord, T):
+    second_arg = np.array([matrix_coord[0],matrix_coord[1],matrix_coord[2], 1])
+    second_arg = np.reshape(second_arg,[-1,1])
+    mni_coord = np.dot(T,second_arg)
+    return np.reshape(mni_coord[0:3],[1,-1])
+
+
+from nilearn import image
+import glob
+
+anod_mni = anod_coords.copy()
+cath_mni = cath_coords.copy()
+
+for db_id, db in enumerate(db_names): # Iterate all three datasets
+    db_path = os.path.join(data_folder, db) # Dataset folder
+
+    for i, subject in enumerate(db_subjects[db_id]): #Iterate all subjects
+        path = db_path + '\sub-' + subject # Subject folder
+        print(path)
+        T1 = image.load_img(glob.glob(path + '\T1_ras.nii'))
+        anod = anod_coords[subject]
+        cath = cath_coords[subject]
+        anod_mni[subject] = matrix_to_mni(anod, T1.affine)
+        cath_mni[subject] = matrix_to_mni(cath, T1.affine)
+
+
+np.save('wp1a_anod_mni_coords.npy', anod_mni) 
+np.save('wp1a_cath_mni_coords.npy', cath_mni) 
