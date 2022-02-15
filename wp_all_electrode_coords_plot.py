@@ -6,14 +6,14 @@ import numpy as np
 from nilearn import plotting
 from nilearn.image import new_img_like
 from tqdm import tqdm
+import os
 
 ## Parameters and variables: 
 nyh_path = 'C:\\Users\\davide\\Desktop\\MRI TOOLS\\nyh\\skin.nii'
 coords_folder = 'C:\\Users\\davide\\Documents\\GitHub\\wp1_2_roast\\electrode_coords\\'
 
 # Datasets names and subjects lists
-db_names = ['wp2a','wp1a', 'wp1b']
-db_names = ['wp2a']
+db_names = ['wp1a', 'wp1b']
 
 
 # Function to convert coordinates from MNI to matrix space
@@ -45,7 +45,7 @@ for slice in range(0, nyh_data.shape[2]-1):
     masked_nyh[:,:,slice] = np.where(lab == 1, 1, 0)
 
 masked_nyh_img = new_img_like(nyh, masked_nyh)
-masked_nyh_img.to_filename('nyh_only_surface.nii')
+#masked_nyh_img.to_filename('nyh_only_surface.nii')
 
 nyh_x, nyh_y, nyh_z = np.where(masked_nyh==1)
 all_indices = []
@@ -72,10 +72,8 @@ for db_id, db in enumerate(db_names):
  
     for sub in tqdm(anod):
         center = mni_to_matrix(anod[sub][0], nyh.affine)
-        print(center)
         closest_point_nyh = all_indices[tree.query(center)[1]]
         center =  closest_point_nyh
-        print(center)
         distance = np.linalg.norm(np.subtract(np.indices(size).T,np.asarray(center)), axis=len(center))
         mask_anod += np.where(distance.T < 5, 1, 0)
 
@@ -91,7 +89,7 @@ for db_id, db in enumerate(db_names):
 
     mask = new_img_like(nyh, mask_anod + mask_cath)
     fname = db + "_manual_elect.nii"
-    mask.to_filename(fname)
+    mask.to_filename(os.path.join('D:\\roast-chapter3\\wp_all_elec_locations\\',fname))
 
 
 # Center of all points
@@ -123,6 +121,7 @@ for db_id, db in enumerate(db_names):
         dist = np.linalg.norm(center-point)
         if max_dist < dist:
             max_dist = dist
+
     print('max dist anod: ' + str(max_dist))
     distance = np.linalg.norm(np.subtract(np.indices(size).T,np.asarray(center)), axis=len(center))
     mask =  np.where((distance.T < max_dist) & (nyh_data != 0), 1, mask)
@@ -141,9 +140,9 @@ for db_id, db in enumerate(db_names):
             max_dist = dist
     print('max dist cath: ' + str(max_dist))
     distance = np.linalg.norm(np.subtract(np.indices(size).T,np.asarray(center)), axis=len(center))
-    mask =  np.where((distance.T < max_dist) & (nyh_data != 0), 2, mask)
+    mask =  np.where((distance.T < max_dist) & (masked_nyh != 0), 2, mask)
  
     # Saving res
     mask = new_img_like(nyh, mask)
     fname = db + "_area_all_points.nii"
-    mask.to_filename(fname)
+    mask.to_filename(os.path.join('D:\\roast-chapter3\\wp_all_elec_locations\\',fname))
