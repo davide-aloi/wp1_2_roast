@@ -13,7 +13,7 @@ nyh_path = 'C:\\Users\\davide\\Desktop\\MRI TOOLS\\nyh\\skin.nii'
 coords_folder = 'C:\\Users\\davide\\Documents\\GitHub\\wp1_2_roast\\electrode_coords\\'
 
 # Datasets names and subjects lists
-db_names = ['wp1a', 'wp1b']
+db_names = ['wp2a','wp1a', 'wp1b']
 
 
 # Function to convert coordinates from MNI to matrix space
@@ -124,7 +124,7 @@ for db_id, db in enumerate(db_names):
 
     print('max dist anod: ' + str(max_dist))
     distance = np.linalg.norm(np.subtract(np.indices(size).T,np.asarray(center)), axis=len(center))
-    mask =  np.where((distance.T < max_dist) & (nyh_data != 0), 1, mask)
+    mask =  np.where((distance.T < max_dist) & (masked_nyh != 0), 1, mask)
 
    # Cathodal
     medianx = np.median(cathnp[:, 0, 0])

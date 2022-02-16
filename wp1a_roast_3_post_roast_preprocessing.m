@@ -8,7 +8,7 @@ data_path = 'D:\roast-chapter3\wp1a\'; %path to wp1a roast simulations
 
 % listof subjects
 participants = {'sub-04','sub-05','sub-07','sub-10','sub-11','sub-12','sub-13','sub-14','sub-15','sub-16','sub-17','sub-18','sub-19','sub-20','sub-21','sub-22','sub-23','sub-24','sub-25','sub-26'}
-participants = {'sub-09'}
+participants = {'sub-22'}
 
 
 nrun = length(participants); % this calculates the number of runs automatically
@@ -27,7 +27,7 @@ for crun = 1:nrun
     % This is your T1 (Luke Andrews: it's important that the estimation of the normalisation parameters is
     % done with this image and not the emag or others)
     
-    t1 = dir(fullfile(thisparticipantpath,'*_ras.nii'));
+    t1 = dir(fullfile(thisparticipantpath,'T1_ras.nii'));
     inputs{2,crun} = cellstr(fullfile(t1.folder,t1.name));    
     
     % Loading all the other scans and storing them in write_im_names
