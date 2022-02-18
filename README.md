@@ -11,7 +11,7 @@ Three datasets are analysed:
 The two analyses are:
 1) Correlation analysis between current density (that is, medians and max values of M1, Thalamus and Cerebellum) and DCM values (changes in effective connectivity after stimulation) (as in Indahlastari et al., 2021).
 
-2) Pattern-recognition analysis using support vector machine (SVM) learning algorithm on MRI-derived tDCS current models to provide classification of tDCS treatment response, as reflected by increased M1-TH or TH-M1 connectivity (or whatever other measure we decide to use). e.g. Albizu et al. (2020). The question is: can we classify people who had an increase in thalamo-cortical connectivity using features from the MRI-current models?
+
 
 ## Analysis steps and scripts
 
@@ -25,8 +25,8 @@ The two analyses are:
 5) Estimation of single-subject posterior probability: this is done at the single subject level, to see which connections showed a significant increase. Scripts: [wp2a](https://github.com/Davi93/wp1_2_roast/blob/main/wp2a_roast_5_single_subject_BMA.m), wp1a, [wp1b](https://github.com/Davi93/wp1_2_roast/blob/main/wp1b_roast_5_single_subject_BMA.m). 
 6) Current density calculation: the script calculates current density for each subject of each dataset, using the function current_density_efield (see below). Results are saved in 3 different 4d scans (one per dataset, with 1 volume per subject). Scripts: [wp2a, wp1a, wp1b](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_6_current_density_calculation.ipynb).
 7) Current density metrics: the script calculates median and max current density values for each subject and dataset, for the three ROIs left M1, left thalamus and right cerebellum. Results are saved in three .CSV files. Scripts: [wp2a, wp1a, wp1b](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_7_current_density_metrics.ipynb).
-8) Correlation analysis between current density metrics and DCM metrics. This is done using CCA. Script: [wp2a, wp1a, wp1b](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_8_current_density_cor.ipynb). 
-9) SVM analysis: pattern-recognition analysis using SVM. I need to update the script. Script: [wp2a, wp1a, wp1b](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_roast_9_SVM.ipynb).
+8) Correlation analysis between current density metrics and DCM metrics. This is done using CCA. Script: [wp2a, wp1a, wp1b](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_8_current_density_cor.ipynb).
+9) Same as point 8 but for the sham stimulation. [wp2a, wp1a, wp1b](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_8_current_density_cor_sham.ipynb)
 
 ## Functions
 Functions are contained in folder [custom_functions](https://github.com/Davi93/wp1_2_roast/tree/main/custom_functions)
