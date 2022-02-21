@@ -11,6 +11,9 @@ Three datasets are analysed:
 Analysis:
 1) Canonical Correlation Analysis (CCA) between current density (that is, medians and max values of M1, Thalamus and Cerebellum) and DCM values (changes in effective connectivity after stimulation) (similar to Indahlastari et al., 2021).
 
+## Plots
+![e-field_figure](https://user-images.githubusercontent.com/4202630/149754221-386e4582-4a39-4723-8e4f-cd94f999f839.png)
+![current_density_figure](https://user-images.githubusercontent.com/4202630/149754258-0eecab03-5c3a-431a-a19c-42adada65021.png)
 
 ## Analysis steps and scripts
 
@@ -33,10 +36,6 @@ Functions are contained in folder [custom_functions](https://github.com/Davi93/w
 
 -- [Plotting functions](https://github.com/Davi93/wp1_2_roast/blob/main/custom_functions/plotting_functions.py)
 - roast_vector_sim: plots electric field directions and intensities. 
-
-## Plots
-![e-field_figure](https://user-images.githubusercontent.com/4202630/149754221-386e4582-4a39-4723-8e4f-cd94f999f839.png)
-![current_density_figure](https://user-images.githubusercontent.com/4202630/149754258-0eecab03-5c3a-431a-a19c-42adada65021.png)
 
 
 ## References:
