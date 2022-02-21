@@ -3,6 +3,7 @@
 % The script applies BMR and BMA on each subjects' PEB model (pre < post) to reduce connections that were not adding to the models evidence.
 % This is done for all 3 stimulation modalities (anodal, cathodal and sham).
 
+
 load wp2a_DCMfiles/PEB_preVsPostDay1.mat % File containing the 66 pre < post PEBs (one per subject x 3 stimulation modalities)
 
 BMAs = {}
