@@ -1,7 +1,7 @@
 % Author: Davide Aloi - PhD student - University of Birmingham
 % The script extracts EP values for each subject, for the pairwise
 % comparison Anodal vs Sham (day1)
-cd C:\Users\davide\Documents\GitHub\wp1_2_roast\wp2a_DCMfiles_anodvssham\
+cd C:\Users\davide\Documents\GitHub\wp1_2_roast\wp2a_DCMfiles\
 
 load('PEB_pairwiseintA.mat')
 
