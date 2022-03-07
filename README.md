@@ -8,15 +8,9 @@ Three datasets are analysed:
 - wp1a and wp1b: participants received one session of anodal, cathodal and sham stimulations, in a counterbalanced order. In wp1a, the target of the stimulation was the left motor cortex. In wp1b, the target was the right cerebellum. Connectivity in the motor network was estimated using dynamic causal modelling (DCM) both before and after stimulation, while participants performed a motor task (simple thumb movement).The datasets are the same of [Aloi et al. (2021)](https://www.sciencedirect.com/science/article/pii/S1053811921010533?via%3Dihub).
 - wp2a: same design as above but the stimulation was administered coupled with passive mobilisation of the thumb. The target of the stimulation was the left motor cortex. Participants received 5 stimulations per week, with one week gap between each stimulation condition, and were scanned on Day-1 and Day-5 of each week.
 
-For all datasets we first used DCM to estimate effective connectivity before / after stimulation in each fMRI session. Then, we used a hierarchical approach to estimate effective connectivity changes Pre vs Post stimulation (pre < post) for all 3 stimulation conditions (anodal, cathodal and sham). Lastly, we used a 2nd level PEB to estimate effective connectivity for the pairwise interaction Anodal Vs Sham (i.e. anodal pre < anodal post > sham pre < sham post) (wp1a and wp2a) and for Cathodal vs Sham (i.e. cathodal pre < cathodal post > sham pre < sham post) for wp1b.
+For all datasets we first used DCM to estimate effective connectivity before / after stimulation in each fMRI session. Then, we used a hierarchical approach to estimate pairwise interactions between Time (pre < post stimulation) and Polarity (Anodal vs sham for wp1a and wp2a, and cathodal vs sham for wp1b). For this, we ran a 1st level PEB with contrast pre < post for all 3 stimulation conditions, and then a 2nd level PEB coding the interaction stimulation x time (i.e. anodal pre < anodal post > sham pre < sham post OR cathodal pre < cathodal post > sham pre < sham post).
 
-We then used Canonical Correlation Analysis (CCA) between current density (that is, medians and max values of M1, Thalamus and Cerebellum) and DCM values resulting from the hierarchical PEBs. This approach is similar to similar to that of Indahlastari et al., 2021 (however here we're using effective and not functional connectivity)
-
-
-
-
-
-
+Of the resulting DCM matrices, we focused only on the connections between M1 and TH (including self connectivities). We took these values and correlated them with current density metrics calculated from MRI-derived models (Max and Median current density values for M1, TH and CB (wp1b only)). This approach is similar to similar to that of Indahlastari et al., 2021 (however here we're using effective and not functional connectivity)
 
 
 ## Plots
