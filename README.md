@@ -28,8 +28,7 @@ Of the resulting DCM matrices, we focused only on the connections between M1 and
 6) DCM values extraction: this script extracts from the files "..all_EPvalues_pairwiseint.mat" present in each DCMfiles folder, the DCM values I'm interested in (Anod vs Sham or Cath vs Sham). Results are saved in numpy files in the folder all_dcm_results. [Script](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_4_3_DCM_matrices_extraction_pairwiseint.ipynb).
 7) Current density calculation: the script calculates current density for each subject of each dataset, using the function current_density_efield (see below). Results are saved in 3 different 4d scans (one per dataset, with 1 volume per subject). Scripts: [wp2a, wp1a, wp1b](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_6_current_density_calculation.ipynb).
 8) Current density metrics: the script calculates median and max current density values for each subject and dataset, for the three ROIs left M1, left thalamus and right cerebellum. Results are saved in three .CSV files. Scripts: [wp2a, wp1a, wp1b](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_7_current_density_metrics.ipynb).
-9) Canonical correlation analysis between current density metrics and DCM metrics corresponding to 3 pairwise interactions: Anodal vs Sham (A-S) (wp1a), A-S (wp2a) and CS (wp1b). [Script](url)
-10) Same as point 8 but for sham stimulation. [wp2a, wp1a, wp1b](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_8_current_density_cor_sham.ipynb)
+9) Canonical correlation analysis between current density metrics and DCM metrics corresponding to 3 pairwise interactions: Anodal vs Sham (A-S) (wp1a), A-S (wp2a) and CS (wp1b). [Script](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_8_current_density_cor_pairwise_interactions.ipynb)
 
 ## Functions
 Functions are contained in folder [custom_functions](https://github.com/Davi93/wp1_2_roast/tree/main/custom_functions)
