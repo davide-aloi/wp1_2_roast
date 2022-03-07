@@ -1,15 +1,23 @@
 Aloi Davide - PhD Student (University of Birmingham - Centre for Human Brain Health)
 
-# Analysis of relationship between tDCS-induced current density and effective connectivity changes in the motor network
+# Analysis of relationship between tDCS-induced current density and effective connectivity changes in the motor network.
 
 The goal of these analyses is to assess the relationship between current density, as simulated using [ROAST](https://github.com/andypotatohy/roast#5-outputs-of-roast-software) pipeline (Huang et al., 2019), and effective connectivity changes within the motor network, derived using DCM and parametric empirical bayes (PEB). 
 
 Three datasets are analysed: 
-- wp1a and wp1b: participants received one session of anodal, cathodal and sham stimulations, in a counterbalanced order. In wp1a, the target of the stimulation was the left motor cortex. In wp1b, the target was the right cerebellum. Connectivity in the motor network was estimated using dynamic causal modelling (DCM) both before and after stimulation, while participants performed a motor task (simple thumb movement). PEB was then used to estimate the differences between pre and post stimulation. In these analyses, we use single-subject changes in connectivity and correlate them with current density metrics. The datasets are the same of [Aloi et al. (2021)](https://www.sciencedirect.com/science/article/pii/S1053811921010533?via%3Dihub).
+- wp1a and wp1b: participants received one session of anodal, cathodal and sham stimulations, in a counterbalanced order. In wp1a, the target of the stimulation was the left motor cortex. In wp1b, the target was the right cerebellum. Connectivity in the motor network was estimated using dynamic causal modelling (DCM) both before and after stimulation, while participants performed a motor task (simple thumb movement).The datasets are the same of [Aloi et al. (2021)](https://www.sciencedirect.com/science/article/pii/S1053811921010533?via%3Dihub).
 - wp2a: same design as above but the stimulation was administered coupled with passive mobilisation of the thumb. The target of the stimulation was the left motor cortex. Participants received 5 stimulations per week, with one week gap between each stimulation condition, and were scanned on Day-1 and Day-5 of each week.
 
-Analysis:
-1) Canonical Correlation Analysis (CCA) between current density (that is, medians and max values of M1, Thalamus and Cerebellum) and DCM values (changes in effective connectivity after stimulation) (similar to Indahlastari et al., 2021).
+For all datasets we first used DCM to estimate effective connectivity before / after stimulation in each fMRI session. Then, we used a hierarchical approach to estimate effective connectivity changes Pre vs Post stimulation (pre < post) for all 3 stimulation conditions (anodal, cathodal and sham). Lastly, we used a 2nd level PEB to estimate effective connectivity for the pairwise interaction Anodal Vs Sham (i.e. anodal pre < anodal post > sham pre < sham post) (wp1a and wp2a) and for Cathodal vs Sham (i.e. cathodal pre < cathodal post > sham pre < sham post) for wp1b.
+
+We then used Canonical Correlation Analysis (CCA) between current density (that is, medians and max values of M1, Thalamus and Cerebellum) and DCM values resulting from the hierarchical PEBs. This approach is similar to similar to that of Indahlastari et al., 2021 (however here we're using effective and not functional connectivity)
+
+
+
+
+
+
+
 
 ## Plots
 ![e-field_figure](https://user-images.githubusercontent.com/4202630/149754221-386e4582-4a39-4723-8e4f-cd94f999f839.png)
