@@ -1,6 +1,6 @@
 Aloi Davide - PhD Student (University of Birmingham - Centre for Human Brain Health)
 
-# Analysis of relationship between tDCS-induced current density and effective connectivity changes in the motor network.
+# Analysis of the relationship between tDCS-induced current density and effective connectivity changes in the motor network.
 
 The goal of these analyses is to assess the relationship between current density, as simulated using [ROAST](https://github.com/andypotatohy/roast#5-outputs-of-roast-software) pipeline (Huang et al., 2019), and effective connectivity changes within the motor network, derived using DCM and parametric empirical bayes (PEB). 
 
