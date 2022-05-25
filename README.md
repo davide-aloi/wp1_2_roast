@@ -1,6 +1,6 @@
 Aloi Davide - PhD Student (University of Birmingham - Centre for Human Brain Health)
 
-# Analysis of relationship between tDCS-induced current density and effective connectivity changes in the motor network.
+# Analysis of the relationship between tDCS-induced current density and effective connectivity changes in the motor network.
 
 The goal of these analyses is to assess the relationship between current density, as simulated using [ROAST](https://github.com/andypotatohy/roast#5-outputs-of-roast-software) pipeline (Huang et al., 2019), and effective connectivity changes within the motor network, derived using DCM and parametric empirical bayes (PEB). 
 
@@ -29,6 +29,7 @@ Of the resulting DCM matrices, we focused only on the connections between M1 and
 7) Current density calculation: the script calculates current density for each subject of each dataset, using the function current_density_efield (see below). Results are saved in 3 different 4d scans (one per dataset, with 1 volume per subject). [Script](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_6_current_density_calculation.ipynb).
 8) Current density metrics: the script calculates median and max current density values for each subject and dataset, for the three ROIs left M1, left thalamus and right cerebellum. Results are saved in three .CSV files. [Script](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_7_current_density_metrics.ipynb).
 9) Canonical correlation analysis between current density metrics and DCM metrics corresponding to 3 pairwise interactions: Anodal vs Sham (A-S) (wp1a), A-S (wp2a) and CS (wp1b). [Script](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_8_current_density_cor_pairwise_interactions.ipynb)
+10) Correlation between each voxel of each roi and DCM metrics (and multiple comparison correction) [Script](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_cor_cd_dcm.ipynb)
 
 ## Functions
 Functions are contained in folder [custom_functions](https://github.com/Davi93/wp1_2_roast/tree/main/custom_functions)
