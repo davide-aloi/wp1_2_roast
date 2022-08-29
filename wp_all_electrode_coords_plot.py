@@ -15,7 +15,6 @@ coords_folder = 'C:\\Users\\davide\\Documents\\GitHub\\wp1_2_roast\\electrode_co
 # Datasets names and subjects lists
 db_names = ['wp2a','wp1a', 'wp1b']
 
-
 # Function to convert coordinates from MNI to matrix space
 def mni_to_matrix(mni_coords, T):
     first_arg = np.transpose(np.linalg.inv(T))
@@ -23,7 +22,6 @@ def mni_to_matrix(mni_coords, T):
     mat_coord = np.dot(second_arg,first_arg)
     mat_coord = mat_coord[0:3]
     mat_coord = np.round(mat_coord[:])
-
     return mat_coord
 
 # LOAD new york head template (skin)
@@ -138,6 +136,7 @@ for db_id, db in enumerate(db_names):
         dist = np.linalg.norm(center-point)
         if max_dist < dist:
             max_dist = dist
+    
     print('max dist cath: ' + str(max_dist))
     distance = np.linalg.norm(np.subtract(np.indices(size).T,np.asarray(center)), axis=len(center))
     mask =  np.where((distance.T < max_dist) & (masked_nyh != 0), 2, mask)
