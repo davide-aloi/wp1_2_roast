@@ -6,8 +6,10 @@ cd C:\Users\davide\Documents\GitHub\wp1_2_roast\wp2a_DCMfiles\
 load('PEB_pairwiseintA.mat')
 
 % NB the file contains 132 structures. These are related to 22 subjects and
-% the 6 pairwise comparisons (Day 1 Anod vs sham, anod vs cath, cath vs sham and Day5 anod vs sham
-% anod vs cath and cath vs sham).
+% the 6 pairwise comparisons
+% order: day1 anodal vs sham, day5 anodal vs sham
+% day 1 anodal vs cath, day 5 anodal vs cath
+% day 1 cath vs sham, day 5 cath vs sham
 
 ALLEP = {}
 
