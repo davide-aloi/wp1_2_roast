@@ -14,6 +14,7 @@ Of the resulting DCM matrices, we focused only on the connections between M1 and
 
 
 ## Plots
+![Analysis pipeline](https://github.com/davide-aloi/wp1_2_roast/blob/main/figures/exp%20diagram%20wp1%20-%20Page%201.png)
 ![e-field_figure](https://user-images.githubusercontent.com/4202630/149754221-386e4582-4a39-4723-8e4f-cd94f999f839.png)
 ![current_density_figure](https://user-images.githubusercontent.com/4202630/149754258-0eecab03-5c3a-431a-a19c-42adada65021.png)
 
