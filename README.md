@@ -4,6 +4,10 @@ Aloi Davide - PhD Student (University of Birmingham - Centre for Human Brain Hea
 
 The goal of this study was to assess the relationship between current density, as simulated using [ROAST](https://github.com/andypotatohy/roast#5-outputs-of-roast-software) pipeline (Huang et al., 2019), and effective connectivity changes within the motor network, derived using DCM and parametric empirical bayes (PEB). 
 
+## Analysis Pipeline
+![Analysis pipeline](https://github.com/davide-aloi/wp1_2_roast/blob/main/figures/exp%20diagram%20wp1%20-%20Page%201.png)
+
+
 The three dataset analysed come from three different experiments: 
 - wp1a and wp1b (i.e., experiment 1 and 2): participants received one session of anodal, cathodal and sham stimulations, in a counterbalanced order. In wp1a, the target of the stimulation was the left motor cortex. In wp1b, the target was the right cerebellum. Connectivity in the motor network was estimated using dynamic causal modelling (DCM) both before and after stimulation, while participants performed a motor task (simple thumb movement).The datasets are the same of [Aloi et al. (2021)](https://www.sciencedirect.com/science/article/pii/S1053811921010533?via%3Dihub).
 - wp2a (i.e., experiment 3): same design as above but the stimulation was administered coupled with passive mobilisation of the thumb. The target of the stimulation was the left motor cortex. Participants received 5 stimulations per week, with one week gap between each stimulation condition, and were scanned on Day-1 and Day-5 of each week. (This study is currently under submission). 
@@ -13,8 +17,6 @@ For all datasets we first used DCM to estimate effective connectivity before / a
 Of the resulting DCM matrices, we focused only on the connections between M1 and TH (including self connectivities). We took these values and correlated them with current density metrics calculated from MRI-derived models (Max and Median current density values for M1, TH and CB (wp1b only)). This approach is similar to that of Indahlastari et al., 2021 (however here we're using effective and not functional connectivity)
 
 
-## Analysis Pipeline
-![Analysis pipeline](https://github.com/davide-aloi/wp1_2_roast/blob/main/figures/exp%20diagram%20wp1%20-%20Page%201.png)
 
 ## Example of Electric field maps
 ![e-field_figure](https://user-images.githubusercontent.com/4202630/149754221-386e4582-4a39-4723-8e4f-cd94f999f839.png)
