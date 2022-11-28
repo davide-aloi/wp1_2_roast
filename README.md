@@ -2,7 +2,7 @@ Aloi Davide - PhD Student (University of Birmingham - Centre for Human Brain Hea
 
 # Analysis of the relationship between tDCS-induced current density and tDCS-induced effective connectivity changes in the motor network.
 
-The goal of this study was to assess the relationship between current density, as simulated using [ROAST](https://github.com/andypotatohy/roast#5-outputs-of-roast-software) pipeline (Huang et al., 2019), and effective connectivity changes within the motor network, derived using DCM and parametric empirical bayes (PEB). 
+The goal of this study was to assess the relationship between current density, as simulated using the [ROAST](https://github.com/andypotatohy/roast#5-outputs-of-roast-software) pipeline (Huang et al., 2019), and effective connectivity changes within the motor network, derived using DCM and parametric empirical bayes (PEB). 
 
 ## Analysis Pipeline
 ![Analysis pipeline](https://github.com/davide-aloi/wp1_2_roast/blob/main/figures/exp%20diagram%20wp1%20-%20Page%201.png)
