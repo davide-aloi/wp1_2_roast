@@ -1,26 +1,31 @@
 Aloi Davide - PhD Student (University of Birmingham - Centre for Human Brain Health)
 
-# Analysis of the relationship between tDCS-induced current density and effective connectivity changes in the motor network.
+# Analysis of the relationship between tDCS-induced current density and tDCS-induced effective connectivity changes in the motor network.
 
-The goal of these analyses is to assess the relationship between current density, as simulated using [ROAST](https://github.com/andypotatohy/roast#5-outputs-of-roast-software) pipeline (Huang et al., 2019), and effective connectivity changes within the motor network, derived using DCM and parametric empirical bayes (PEB). 
+The goal of this study was to assess the relationship between current density, as simulated from MRI anatomical scans using the [ROAST](https://github.com/andypotatohy/roast#5-outputs-of-roast-software) pipeline (Huang et al., 2019), and effective connectivity changes within the motor network, derived using DCM and parametric empirical bayes (PEB). Anatomical and effective connectivity data were gathered from three different fMRI dataset, published in [Aloi et al., 2021](https://www.sciencedirect.com/science/article/pii/S1053811921010533?via%3Dihub) and [Aloi et al., 2022](https://doi.org/10.1101/2022.11.22.517479).
 
-Three datasets are analysed: 
-- wp1a and wp1b: participants received one session of anodal, cathodal and sham stimulations, in a counterbalanced order. In wp1a, the target of the stimulation was the left motor cortex. In wp1b, the target was the right cerebellum. Connectivity in the motor network was estimated using dynamic causal modelling (DCM) both before and after stimulation, while participants performed a motor task (simple thumb movement).The datasets are the same of [Aloi et al. (2021)](https://www.sciencedirect.com/science/article/pii/S1053811921010533?via%3Dihub).
-- wp2a: same design as above but the stimulation was administered coupled with passive mobilisation of the thumb. The target of the stimulation was the left motor cortex. Participants received 5 stimulations per week, with one week gap between each stimulation condition, and were scanned on Day-1 and Day-5 of each week.
+## Analysis Pipeline
+![Analysis pipeline](https://github.com/davide-aloi/wp1_2_roast/blob/main/figures/exp%20diagram%20wp1%20-%20Page%201.png)
+
+
+The three dataset analysed come from three different experiments: 
+- wp1a and wp1b (i.e., experiment 1 and 2): participants received one session of anodal, cathodal and sham stimulations, in a counterbalanced order. In wp1a, the target of the stimulation was the left motor cortex. In wp1b, the target was the right cerebellum. Connectivity in the motor network was estimated using dynamic causal modelling (DCM) both before and after stimulation, while participants performed a motor task (simple thumb movement).The datasets are the same of [Aloi et al. (2021)](https://www.sciencedirect.com/science/article/pii/S1053811921010533?via%3Dihub).
+- wp2a (i.e., experiment 3): same design as above but the stimulation was administered coupled with passive mobilisation of the thumb. The target of the stimulation was the left motor cortex. Participants received 5 stimulations per week, with one week gap between each stimulation condition, and were scanned on Day-1 and Day-5 of each week. (The publication is now accessible as preprint https://doi.org/10.1101/2022.11.22.517479). 
 
 For all datasets we first used DCM to estimate effective connectivity before / after stimulation in each fMRI session. Then, we used a hierarchical approach to estimate pairwise interactions between Time (pre < post stimulation) and Polarity (Anodal vs sham for wp1a and wp2a, and cathodal vs sham for wp1b). For this, we ran a 1st level PEB with contrast pre < post for all 3 stimulation conditions, and then a 2nd level PEB coding the interaction stimulation x time (i.e. anodal pre < anodal post > sham pre < sham post OR cathodal pre < cathodal post > sham pre < sham post).
 
 Of the resulting DCM matrices, we focused only on the connections between M1 and TH (including self connectivities). We took these values and correlated them with current density metrics calculated from MRI-derived models (Max and Median current density values for M1, TH and CB (wp1b only)). This approach is similar to that of Indahlastari et al., 2021 (however here we're using effective and not functional connectivity)
 
 
-## Plots
+
+## Example of Electric field maps
 ![e-field_figure](https://user-images.githubusercontent.com/4202630/149754221-386e4582-4a39-4723-8e4f-cd94f999f839.png)
-![current_density_figure](https://user-images.githubusercontent.com/4202630/149754258-0eecab03-5c3a-431a-a19c-42adada65021.png)
+(nb the electric field maps were converted to current density prior to the CCA and voxel based analyses)
 
 ## Analysis steps and scripts
 
 1) [Rename files](https://github.com/Davi93/wp1_2_roast/blob/main/wp2a_roast_1_rename_scans.py): this renames the anatomical scans of each participant (i.e. sub-01_T1.nii etc) of dataset wp2a. 
-2) Roast simulations: in brief, ROAST outputs the following scans for each subject, while also using SPM routines for tissue segmentation: Voltage ("subjName_simulationTag_v.nii", unit in mV), E-field ("subjName_simulationTag_e.nii", unit in V/m) and E-field magnitude ("subjName_simulationTag_emag.nii", unit in V/m). This was done for all three datasets. The coordinates of the electrodes were visually derived using MRIcroGL. [wp2a](https://github.com/Davi93/wp1_2_roast/blob/main/wp2a_roast_2_roast_simulation.m) [wp1a](https://github.com/Davi93/wp1_2_roast/blob/main/wp1a_roast_2_roast_simulation.m), [wp1b](https://github.com/Davi93/wp1_2_roast/blob/main/wp1b_roast_2_roast_simulation.m). 
+2) Roast simulations: in brief, ROAST outputs the following scans for each subject, while also using SPM routines for tissue segmentation: Voltage ("subjName_simulationTag_v.nii", unit in mV), E-field ("subjName_simulationTag_e.nii", unit in V/m) and E-field magnitude ("subjName_simulationTag_emag.nii", unit in V/m). This was done for all three datasets. The coordinates of the electrodes were visually derived using MRIcroGL. [wp2a](https://github.com/Davi93/wp1_2_roast/blob/main/wp2a_roast_2_roast_simulation.m), [wp1a](https://github.com/Davi93/wp1_2_roast/blob/main/wp1a_roast_2_roast_simulation.m), [wp1b](https://github.com/Davi93/wp1_2_roast/blob/main/wp1b_roast_2_roast_simulation.m). 
 
 3) Post ROAST preprocessing: ROAST outputs are in ROAST model space. These scripts move ROAST results back to the MRI space, coregisters and normalises the electric field maps generated by ROAST. The script also normalise the T1 scan and all the masks. NB. ROAST creates a mask in which it combines all spm maks, after applying morphological operations and heuristics on SPM masks to remove holes (unassigned voxels). This mask will be used to calculate current density starting from electric field magnitude. The script was adapted from Luke Andrews's MsC thesis. Scripts: [wp2a](https://github.com/Davi93/wp1_2_roast/blob/main/wp2a_roast_3_post_roast_preprocessing.m), [wp1a](https://github.com/Davi93/wp1_2_roast/blob/main/wp1a_roast_3_post_roast_preprocessing.m), [wp1b](https://github.com/Davi93/wp1_2_roast/blob/main/wp1b_roast_3_post_roast_preprocessing.m). All these three scripts refer to the same [job](https://github.com/Davi93/wp1_2_roast/blob/main/wp2a_roast_3_post_roast_preprocessing_job.m) file.
 4) Starting from the DCM estimations for each fMRI session, we ran a 1st level PEB to estimate pre vs post changes (pre < post). I already had the pre vs post results for wp2a, whereas for wp1a and b I used [this](https://github.com/Davi93/wp1_2_roast/blob/main/wp1a_roast_4_1_run_and_extract_single_dcms.m) script. This script takes the GCM files within wp1a_DCMfiles and wp1b_DCMfiles and runs 3 pebs per subjects (pre < post for each polarity).
@@ -29,7 +34,7 @@ Of the resulting DCM matrices, we focused only on the connections between M1 and
 7) Current density calculation: the script calculates current density for each subject of each dataset, using the function current_density_efield (see below). Results are saved in 3 different 4d scans (one per dataset, with 1 volume per subject). [Script](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_6_current_density_calculation.ipynb).
 8) Current density metrics: the script calculates median and max current density values for each subject and dataset, for the three ROIs left M1, left thalamus and right cerebellum. Results are saved in three .CSV files. [Script](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_7_current_density_metrics.ipynb).
 9) Canonical correlation analysis between current density metrics and DCM metrics corresponding to 3 pairwise interactions: Anodal vs Sham (A-S) (wp1a), A-S (wp2a) and CS (wp1b). [Script](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_8_current_density_cor_pairwise_interactions.ipynb)
-10) Correlation between each voxel of each roi and DCM metrics (and multiple comparison correction) [Script](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_cor_cd_dcm.ipynb)
+10) Voxel based correlation analysis: correlation between each voxel of each roi and DCM metrics (and multiple comparison correction) [Script](https://github.com/Davi93/wp1_2_roast/blob/main/wp_all_cor_cd_dcm.ipynb)
 
 ## Functions
 Functions are contained in folder [custom_functions](https://github.com/Davi93/wp1_2_roast/tree/main/custom_functions)
