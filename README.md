@@ -2,7 +2,7 @@ Aloi Davide - PhD Student (University of Birmingham - Centre for Human Brain Hea
 
 # Analysis of the relationship between tDCS-induced current density and tDCS-induced effective connectivity changes in the motor network.
 
-The goal of this study was to assess the relationship between current density, as simulated from MRI anatomical scans using the [ROAST](https://github.com/andypotatohy/roast#5-outputs-of-roast-software) pipeline (Huang et al., 2019), and effective connectivity changes within the motor network, derived using DCM and parametric empirical bayes (PEB). Anatomical and effective connectivity data were gathered from three different fMRI dataset, published in [Aloi et al., 2021](https://www.sciencedirect.com/science/article/pii/S1053811921010533?via%3Dihub) and [Aloi et al., 2023]([https://doi.org/10.1101/2022.11.22.517479](https://www.sciencedirect.com/science/article/pii/S1053811923002963?via%3Dihub)).
+The goal of this study was to assess the relationship between current density, as simulated from MRI anatomical scans using the [ROAST](https://github.com/andypotatohy/roast#5-outputs-of-roast-software) pipeline (Huang et al., 2019), and effective connectivity changes within the motor network, derived using DCM and parametric empirical bayes (PEB). Anatomical and effective connectivity data were gathered from three different fMRI dataset, published in [Aloi et al., 2021](https://www.sciencedirect.com/science/article/pii/S1053811921010533?via%3Dihub) and [Aloi et al., 2023](https://doi.org/10.1101/2022.11.22.517479](https://www.sciencedirect.com/science/article/pii/S1053811923002963?via%3Dihub).
 
 ## Analysis Pipeline
 ![Analysis pipeline](https://github.com/davide-aloi/wp1_2_roast/blob/main/figures/exp%20diagram%20wp1%20-%20Page%201.png)
