@@ -16,6 +16,13 @@ For all datasets we first used DCM to estimate effective connectivity before / a
 
 Of the resulting DCM matrices, we focused only on the connections between M1 and TH (including self connectivities). We took these values and correlated them with current density metrics calculated from MRI-derived models (Max and Median current density values for M1, TH and CB (wp1b only)). This approach is similar to that of Indahlastari et al., 2021 (however here we're using effective and not functional connectivity)
 
+## Snapshot of results 
+
+Current density metrics of each stimulation protocol.
+![Current density](CD_medians_allstudies.png)
+
+Canonical Correlation Analysis outcome for Experiment 3 (M1 as target of the stimulation)
+![Current density](/figures/ccca_updated.PNG)
 
 
 ## Example of Electric field maps
