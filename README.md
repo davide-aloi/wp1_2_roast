@@ -22,7 +22,8 @@ Current density metrics of each stimulation protocol.
 ![Current density](CD_medians_allstudies.png)
 
 Canonical Correlation Analysis outcome for Experiment 3 (M1 as target of the stimulation)
-<img src="https://github.com/davide-aloi/wp1_2_roast/blob/main/figures/ccca_updated.PNG?raw=true" width="100" height="100">
+<img src="https://github.com/davide-aloi/wp1_2_roast/blob/main/figures/ccca_updated.PNG?raw=true" width="696" height="419">
+
 
 ## Example of Electric field maps
 ![e-field_figure](https://user-images.githubusercontent.com/4202630/149754221-386e4582-4a39-4723-8e4f-cd94f999f839.png)
